@@ -25,6 +25,13 @@ function App() {
       />
       <Button
         buttonType="primary"
+        disabled={false}
+        icon={"🔥"}
+        label="Primary CTA Button"
+        onClick={() => console.log("Primary BTN")}
+      />
+      <Button
+        buttonType="primary"
         disabled={true}
         label="Primary CTA Button"
         onClick={() => console.log("Primary BTN")}

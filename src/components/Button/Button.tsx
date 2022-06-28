@@ -1,8 +1,11 @@
+import { ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
+import { Colors } from "../../../src/styles/colors";
 
 type Props = {
   label: string;
   buttonType: string;
+  icon?: string;
   disabled?: boolean;
   onClick: () => void;
 };
@@ -11,7 +14,7 @@ const ButtonStyled = styled.button<Pick<Props, "disabled" | "buttonType">>`
   padding: 8px 20px;
   text-transform: uppercase;
   cursor: pointer;
-  border: 2px solid #003046;
+  border: 2px solid ${Colors.mountainBlue};
   transition: 0.2s ease-in-out;
   font-size: small;
   font-weight: 600;
@@ -19,32 +22,37 @@ const ButtonStyled = styled.button<Pick<Props, "disabled" | "buttonType">>`
   ${({ buttonType, disabled }) => {
     // Primary Btn
     if (buttonType === "primary" && !disabled) {
-      return `color: white; background-color: #003046};  &:hover {background: #0169B4; border: 2px solid #0169B4}`;
+      return `color: ${Colors.white}; background-color: ${Colors.mountainBlue}};  &:hover {background: ${Colors.icyBlue}; border: 2px solid ${Colors.icyBlue}}`;
     } else if (buttonType === "primary" && disabled) {
-      return "color: white; background-color: #9EA1A4; border: 2px solid #9EA1A4";
+      return `color: ${Colors.white}; background-color: ${Colors.matteGray}; border: 2px solid ${Colors.matteGray}`;
     }
 
     // Secondary Btn
     if (buttonType === "secondary" && !disabled) {
-      return `color: #003046; background-color: transparent; &:hover {color: #0169B4; border: 2px solid #0169B4};`;
+      return `color: ${Colors.mountainBlue}; background-color: transparent; &:hover {color: ${Colors.icyBlue}; border: 2px solid ${Colors.icyBlue}};`;
     } else if (buttonType === "secondary" && disabled) {
-      return "color: white; background-color: #9EA1A4; border: 2px solid #9EA1A4";
+      return `color: ${Colors.white}; background-color: ${Colors.matteGray}; border: 2px solid ${Colors.matteGray}`;
     }
 
     // Tertiary Btn
     if (buttonType === "tertiary" && !disabled) {
-      return `color: #003046; background-color: #9FCC3A; border: 2px solid #9FCC3A; &:hover {color: white; background-color: #0169B4; border: 2px solid #0169B4};`;
+      return `color: ${Colors.mountainBlue}; background-color: ${Colors.lime}; border: 2px solid ${Colors.lime}; &:hover {color: ${Colors.white}; background-color: ${Colors.icyBlue}; border: 2px solid ${Colors.icyBlue}};`;
     } else if (buttonType === "tertiary" && disabled) {
-      return "color: white; background-color: #9EA1A4; border: 2px solid #9EA1A4";
+      return `color: ${Colors.white}; background-color: ${Colors.matteGray}; border: 2px solid ${Colors.matteGray}`;
     }
   }};
 `;
-// background-color: ${({ disabled }) => (disabled ? "#9EA1A4" : "#003046")};";
 
-export const Button = ({ label, onClick, buttonType, disabled }: Props) => {
+export const Button = ({
+  label,
+  buttonType,
+  icon,
+  disabled,
+  onClick,
+}: Props) => {
   return (
     <ButtonStyled buttonType={buttonType} disabled={disabled} onClick={onClick}>
-      {label}
+      {label} {icon}
     </ButtonStyled>
   );
 };
