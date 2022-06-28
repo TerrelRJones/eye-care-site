@@ -1,25 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+
+import Button from "./components/Button";
+
+import "./App.css";
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 25vh;
+  max-width: 1440px;
+  margin: 0 auto;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Button
+        buttonType="primary"
+        disabled={false}
+        label="Primary CTA Button"
+        onClick={() => console.log("Primary BTN")}
+      />
+      <Button
+        buttonType="primary"
+        disabled={true}
+        label="Primary CTA Button"
+        onClick={() => console.log("Primary BTN")}
+      />
+      <Button
+        buttonType="secondary"
+        disabled={false}
+        label="Secondary Button"
+        onClick={() => console.log("Secondary BTN")}
+      />
+      <Button
+        buttonType="secondary"
+        disabled={true}
+        label="Secondary Button"
+        onClick={() => console.log("Secondary BTN")}
+      />
+      <Button
+        buttonType="tertiary"
+        disabled={false}
+        label="Tertiary Button"
+        onClick={() => console.log("Tertiary BTN")}
+      />
+      <Button
+        buttonType="tertiary"
+        disabled={true}
+        label="Tertiary Button"
+        onClick={() => console.log("Tertiary BTN")}
+      />
+    </Container>
   );
 }
 
