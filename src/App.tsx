@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import Button from "./components/Button";
 
+import { FiLogIn } from "react-icons/fi";
+
 import "./App.css";
 
 const Container = styled.div`
@@ -26,7 +28,7 @@ function App() {
       <Button
         buttonType="primary"
         disabled={false}
-        icon={"🔥"}
+        icon={<FiLogIn />}
         label="Primary CTA Button"
         onClick={() => console.log("Primary BTN")}
       />

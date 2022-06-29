@@ -1,16 +1,17 @@
-import { ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 import { Colors } from "../../../src/styles/colors";
 
 type Props = {
   label: string;
   buttonType: string;
-  icon?: string;
+  icon?: React.ReactNode;
   disabled?: boolean;
   onClick: () => void;
 };
 
 const ButtonStyled = styled.button<Pick<Props, "disabled" | "buttonType">>`
+  display: flex;
+  align-items: center;
   padding: 8px 20px;
   text-transform: uppercase;
   cursor: pointer;
@@ -41,6 +42,13 @@ const ButtonStyled = styled.button<Pick<Props, "disabled" | "buttonType">>`
       return `color: ${Colors.white}; background-color: ${Colors.matteGray}; border: 2px solid ${Colors.matteGray}`;
     }
   }};
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+  }
 `;
 
 export const Button = ({
@@ -52,7 +60,8 @@ export const Button = ({
 }: Props) => {
   return (
     <ButtonStyled buttonType={buttonType} disabled={disabled} onClick={onClick}>
-      {label} {icon}
+      {label}
+      <div className="icon">{icon}</div>
     </ButtonStyled>
   );
 };
