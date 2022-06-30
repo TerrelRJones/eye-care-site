@@ -1,10 +1,6 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
-import Button from "./components/Button";
-
-import { FiLogIn } from "react-icons/fi";
-
-import "./App.css";
+import CardContainer from "./components/CardContainer";
 
 const Container = styled.div`
   display: flex;
@@ -16,53 +12,20 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+`;
+
 function App() {
   return (
-    <Container>
-      <Button
-        buttonType="primary"
-        disabled={false}
-        label="Primary CTA Button"
-        onClick={() => console.log("Primary BTN")}
-      />
-      <Button
-        buttonType="primary"
-        disabled={false}
-        icon={<FiLogIn />}
-        label="Primary CTA Button"
-        onClick={() => console.log("Primary BTN")}
-      />
-      <Button
-        buttonType="primary"
-        disabled={true}
-        label="Primary CTA Button"
-        onClick={() => console.log("Primary BTN")}
-      />
-      <Button
-        buttonType="secondary"
-        disabled={false}
-        label="Secondary Button"
-        onClick={() => console.log("Secondary BTN")}
-      />
-      <Button
-        buttonType="secondary"
-        disabled={true}
-        label="Secondary Button"
-        onClick={() => console.log("Secondary BTN")}
-      />
-      <Button
-        buttonType="tertiary"
-        disabled={false}
-        label="Tertiary Button"
-        onClick={() => console.log("Tertiary BTN")}
-      />
-      <Button
-        buttonType="tertiary"
-        disabled={true}
-        label="Tertiary Button"
-        onClick={() => console.log("Tertiary BTN")}
-      />
-    </Container>
+    <>
+      <GlobalStyle />
+      <Container>
+        <CardContainer />
+      </Container>
+    </>
   );
 }
 
