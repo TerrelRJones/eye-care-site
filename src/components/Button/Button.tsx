@@ -1,24 +1,32 @@
 import styled from "styled-components";
 import { Colors } from "../../../src/styles/colors";
 
-type Props = {
+export type ButtonProps = {
   label: string;
-  buttonType: string;
+  buttonType: "primary" | "secondary" | "tertiary";
   icon?: React.ReactNode;
   disabled?: boolean;
   onClick: () => void;
 };
 
-const ButtonStyled = styled.button<Pick<Props, "disabled" | "buttonType">>`
+const ButtonStyled = styled.button<
+  Pick<ButtonProps, "disabled" | "buttonType">
+>`
   display: flex;
   align-items: center;
-  padding: 8px 20px;
+  justify-content: center;
+  height: 40px;
+  width: 240px;
   text-transform: uppercase;
   cursor: pointer;
   border: 2px solid ${Colors.mountainBlue};
   transition: 0.2s ease-in-out;
-  font-size: small;
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 19px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
 
   ${({ buttonType, disabled }) => {
     // Primary Btn
@@ -57,7 +65,7 @@ export const Button = ({
   icon,
   disabled,
   onClick,
-}: Props) => {
+}: ButtonProps) => {
   return (
     <ButtonStyled buttonType={buttonType} disabled={disabled} onClick={onClick}>
       {label}
