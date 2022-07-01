@@ -9,14 +9,21 @@ import {
   findADoctorCard,
   viewMemberIdCard,
 } from "const/CTACardConst";
+import Footer from "components/Footer";
 
 const Container = Styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
   flex-wrap: wrap;
   margin: 0 auto;
-  padding: 15px;
+
+  @media(max-width: 576px){
+
+    padding: 15px;
+  }
 `;
 
 function App() {
@@ -28,6 +35,7 @@ function App() {
           <Card {...findADoctorCard} />
           <Card {...viewMemberIdCard} />
         </CardContainer>
+        <Footer />
       </Container>
     </>
   );
