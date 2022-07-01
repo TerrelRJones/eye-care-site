@@ -7,7 +7,7 @@ import { Colors } from "../../styles/colors";
 type CardProps = {
   title: string;
   text: string;
-  icon: SVGSVGElement;
+  icon: React.ReactElement;
   buttonLabel: string;
   buttonType: "primary" | "secondary" | "tertiary";
   disabled: boolean;
@@ -20,7 +20,6 @@ const CardStyled = Styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 400px;
     width: 310px;
@@ -31,6 +30,7 @@ const CardStyled = Styled.div`
         color: ${Colors.mountainBlue};
         font-family: 'Oswald';
         font-size: 22px;
+        font-weight: '600';
         letter-spacing: 0;
         line-height: 24.2px;
         text-align: center;
@@ -43,6 +43,7 @@ const CardStyled = Styled.div`
         /* font-family: ".SF NS Display"; */
         font-family: "Open Sans";
         font-size: 14px;
+        font-weight: '600';
         letter-spacing: 0;
         line-height: 20px;
         text-align: center;
@@ -52,6 +53,21 @@ const CardStyled = Styled.div`
         position: absolute;
         bottom: 15px;
     }
+    @media(max-width: 576px){
+            height: 350px;
+            width: 100%;
+
+            .button-container{
+              display: flex;
+              justify-content: center;
+              width: 100%;
+            }
+            }
+`;
+
+const Icon = Styled.div`
+  margin-top: 60px;
+  margin-bottom: 10px;
 `;
 
 export const Card = ({
@@ -66,7 +82,7 @@ export const Card = ({
 }: CardProps) => {
   return (
     <CardStyled>
-      <div>{icon}</div>
+      <Icon>{icon}</Icon>
       <div className="card__text-container">
         <h1 className="card-title">{title}</h1>
         <p className="card-text">{text}</p>
