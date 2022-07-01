@@ -22,7 +22,7 @@ const CardStyled = Styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 415px;
+    height: 400px;
     width: 310px;
     background-color: ${Colors.white};
 
@@ -40,7 +40,8 @@ const CardStyled = Styled.div`
 
     .card-text {
         color: ${Colors.mountainBlue};
-        font-family: ".SF NS Display";
+        /* font-family: ".SF NS Display"; */
+        font-family: "Open Sans";
         font-size: 14px;
         letter-spacing: 0;
         line-height: 20px;
