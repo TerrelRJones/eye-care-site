@@ -9,7 +9,7 @@ type CardProps = {
   text: string;
   icon: React.ReactElement;
   buttonLabel: string;
-  buttonType: "primary" | "secondary" | "tertiary";
+  buttonType: string;
   disabled: boolean;
   btnIcon?: React.ReactNode;
   onClick: () => void;

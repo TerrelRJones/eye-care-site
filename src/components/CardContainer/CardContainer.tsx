@@ -35,11 +35,7 @@ const CardContainerStyled = Styled.div`
     display: flex;
     flex-direction: column;
   }
-  }
-
-
- 
-  
+  } 
 `;
 
 export const CardContainer = ({ title, children }: CardContainerProps) => {
