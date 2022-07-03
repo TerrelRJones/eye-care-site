@@ -8,7 +8,7 @@ type CardContainerProps = {
 };
 
 const CardContainerStyled = Styled.div`
-  background-color: red;
+  /* background-color: red; */
   /* height: 435px; */
   /* width: 1010px; */
 
