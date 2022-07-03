@@ -17,42 +17,15 @@ type CardProps = {
 
 // styling
 const CardStyled = Styled.div`
-    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     height: 400px;
     width: 310px;
     background-color: ${Colors.white};
 
-    
-    .card-title {
-        color: ${Colors.mountainBlue};
-        font-family: 'Oswald';
-        font-size: 22px;
-        font-weight: '600';
-        letter-spacing: 0;
-        line-height: 24.2px;
-        text-align: center;
-        text-transform: Capitalize;
-        margin-top: 25px;
-    }
 
-    .card-text {
-        color: ${Colors.mountainBlue};
-        /* font-family: ".SF NS Display"; */
-        font-family: "Open Sans";
-        font-size: 14px;
-        font-weight: '600';
-        letter-spacing: 0;
-        line-height: 20px;
-        text-align: center;
-    }
-
-    .button-container {
-        position: absolute;
-        bottom: 15px;
-    }
     @media(max-width: 576px){
             height: 350px;
             width: 100%;
@@ -65,9 +38,38 @@ const CardStyled = Styled.div`
             }
 `;
 
+const CardContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  .card-title {
+        color: ${Colors.mountainBlue};
+        font-family: 'Oswald';
+        font-size: 22px;
+        font-weight: '600';
+        letter-spacing: 0;
+        line-height: 24.2px;
+        text-align: center;
+        text-transform: Capitalize;
+    }
+`;
+
 const Icon = Styled.div`
   margin-top: 60px;
   margin-bottom: 10px;
+`;
+
+const Text = Styled.div`
+          color: ${Colors.mountainBlue};
+        /* font-family: ".SF NS Display"; */
+        font-family: "Open Sans";
+        font-size: .9em;
+        font-weight: '600';
+        letter-spacing: 0;
+        line-height: 20px;
+        text-align: center;
 `;
 
 export const Card = ({
@@ -82,11 +84,11 @@ export const Card = ({
 }: CardProps) => {
   return (
     <CardStyled>
-      <Icon>{icon}</Icon>
-      <div className="card__text-container">
+      <CardContainer>
+        <Icon>{icon}</Icon>
         <h1 className="card-title">{title}</h1>
-        <p className="card-text">{text}</p>
-      </div>
+        <Text>{text}</Text>
+      </CardContainer>
 
       <div className="button-container">
         <Button
