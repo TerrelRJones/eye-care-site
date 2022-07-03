@@ -3,7 +3,7 @@ import { Colors } from "styles/colors";
 
 export type ButtonProps = {
   label: string;
-  buttonType: "primary" | "secondary" | "tertiary" | string;
+  buttonType: string;
   icon?: React.ReactNode;
   disabled?: boolean;
   onClick: () => void;
