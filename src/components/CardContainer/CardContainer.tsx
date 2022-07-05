@@ -11,6 +11,7 @@ const CardContainerStyled = Styled.div`
   /* background-color: red; */
   /* height: 435px; */
   /* width: 1010px; */
+  margin-bottom: 100px;
 
   .card-container__title {
     height: 47px;
@@ -27,9 +28,13 @@ const CardContainerStyled = Styled.div`
   }
 
   .card-container {
-    display: grid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* display: grid;
     place-items: center;
-    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-columns: repeat(3, 1fr) ; */
 
     @media (max-width: 576px) {
     display: flex;
