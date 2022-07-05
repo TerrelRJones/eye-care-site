@@ -3,6 +3,7 @@ import { Colors } from "styles/colors";
 
 import { ReactComponent as VSPLogo } from "assets/images/vsp_logo_secondary.svg";
 import { FooterLinks } from "const/FooterLinks";
+import Link from "components/Link";
 
 const StyledFooter = Styled.footer`
     background-color: ${Colors.mountainBlue};
@@ -51,26 +52,6 @@ const FooterCard = Styled.div`
     }
     `;
 
-const Link = Styled.a`
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: ${Colors.white};
-        font-family: "Open Sans";
-        font-size: 12px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        line-height: 20px;
-        margin-bottom: 8px;
-        text-transform: capitalize;
-
-        img {
-        width: 1rem;
-        margin-right: 5px;
-      }
-
-`;
-
 const LogoContainer = Styled.div`
     display: flex;
     align-items: baseline;
@@ -105,10 +86,7 @@ export const Footer = () => {
               <div className="title">{title}</div>
               {links.map(({ text, url, image, alt }: any) => (
                 <div className="links">
-                  <Link href={url} target="_blank">
-                    {image ? <img src={image} alt={alt} /> : null}
-                    {text}
-                  </Link>
+                  <Link url={url} text={text} image={image} alt={alt} />
                 </div>
               ))}
             </FooterCard>
