@@ -22,7 +22,7 @@ const Container = Styled.div`
 
   @media(max-width: 576px){
 
-    padding: 15px;
+    /* padding: 15px; */
   }
 `;
 
