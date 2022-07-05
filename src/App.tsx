@@ -1,7 +1,10 @@
 import Styled from "styled-components";
 
-import CardContainer from "components/CardContainer";
+// components
 import Card from "components/Card";
+import CardContainer from "components/CardContainer";
+import ContactUs from "components/ContactUs";
+import Footer from "components/Footer";
 
 // Cards
 import {
@@ -9,7 +12,6 @@ import {
   findADoctorCard,
   viewMemberIdCard,
 } from "const/CTACardConst";
-import Footer from "components/Footer";
 
 const Container = Styled.div`
   display: flex;
@@ -30,6 +32,7 @@ function App() {
   return (
     <>
       <Container>
+        <ContactUs title="Contact Us" linksTitle="Quick Links" />
         <CardContainer title="VSP Benefits are easy to use">
           <Card {...reviewBenefitsCard} />
           <Card {...findADoctorCard} />
