@@ -24,11 +24,12 @@ const CardStyled = Styled.div`
     height: 400px;
     width: 310px;
     background-color: ${Colors.white};
+    
 
 
     @media(max-width: 576px){
             height: 350px;
-            width: 100%;
+            width: 90%;
 
             .button-container{
               display: flex;
