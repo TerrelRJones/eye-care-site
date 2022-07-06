@@ -21,12 +21,13 @@ const CardStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 400px;
-  width: 310px;
+  height: 100%;
+  width: 100%;
+  max-width: 310px;
   background-color: ${Colors.white};
 
   @media (max-width: 576px) {
-    height: 350px;
+    height: 100%;
     width: 90%;
 
     .button-container {
