@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import styled from "styled-components";
 
 // components
 import Card from "components/Card";
@@ -13,7 +13,7 @@ import {
   viewMemberIdCard,
 } from "const/CTACardConst";
 
-const Container = Styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

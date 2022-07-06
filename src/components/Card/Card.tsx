@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import styled from "styled-components";
 
 import Button from "components/Button";
 
@@ -16,61 +16,58 @@ type CardProps = {
 };
 
 // styling
-const CardStyled = Styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 400px;
-    width: 310px;
-    background-color: ${Colors.white};
-    
+const CardStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 310px;
+  background-color: ${Colors.white};
 
+  @media (max-width: 576px) {
+    height: 100%;
+    width: 90%;
 
-    @media(max-width: 576px){
-            height: 350px;
-            width: 90%;
-
-            .button-container{
-              display: flex;
-              justify-content: center;
-              width: 100%;
-            }
-            }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
 `;
 
-const CardContainer = Styled.div`
+const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 
-
   .card-title {
-        color: ${Colors.mountainBlue};
-        font-family: 'Oswald';
-        font-size: 22px;
-        font-weight: '600';
-        letter-spacing: 0;
-        line-height: 24.2px;
-        text-align: center;
-        text-transform: Capitalize;
-    }
+    color: ${Colors.mountainBlue};
+    font-family: "Oswald";
+    font-size: 22px;
+    font-weight: "600";
+    letter-spacing: 0;
+    line-height: 24.2px;
+    text-align: center;
+    text-transform: capitalize;
+  }
 `;
 
-const Icon = Styled.div`
+const Icon = styled.div`
   margin-top: 60px;
   margin-bottom: 10px;
 `;
 
-const Text = Styled.p`
-          color: ${Colors.mountainBlue};
-        /* font-family: ".SF NS Display"; */
-        font-family: "Open Sans";
-        font-size: .9em;
-        font-weight: '600';
-        letter-spacing: 0;
-        line-height: 20px;
-        text-align: center;
+const Text = styled.p`
+  color: ${Colors.mountainBlue};
+  font-family: "Open Sans";
+  font-size: 0.9em;
+  font-weight: "600";
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
 `;
 
 export const Card = ({
