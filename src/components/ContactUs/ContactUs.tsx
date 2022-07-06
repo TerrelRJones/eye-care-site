@@ -160,6 +160,7 @@ export const ContactUs = ({ title, linksTitle }: ContactUsProps) => {
             <div className="links">
               {ContactUsLinks.map(({ title, url }: any) => (
                 <Link
+                  key={title}
                   url={url}
                   text={title}
                   color={Colors.icyBlue}
