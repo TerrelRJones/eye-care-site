@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import styled from "styled-components";
 
 import CardContainer from "components/CardContainer";
 import Card from "components/Card";
@@ -10,7 +10,7 @@ import {
   viewMemberIdCard,
 } from "const/CTACardConst";
 
-const Container = Styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
