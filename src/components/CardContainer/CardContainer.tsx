@@ -8,13 +8,10 @@ type CardContainerProps = {
 };
 
 const CardContainerStyled = Styled.div`
-  /* background-color: red; */
-  /* height: 435px; */
-  width: 1010px;
+    width: 100%;
+    max-width: 1010px;
 
   .card-container__title {
-    height: 47px;
-    /* width: 483px; */
     color: ${Colors.mountainBlue};
     font-family: 'Oswald';
     display: flex;
