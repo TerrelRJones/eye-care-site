@@ -33,11 +33,6 @@ const LinkStyled = styled.a<Pick<LinkProps, "color" | "hoverColor">>`
     width: 1rem;
     margin-right: 5px;
   }
-
-  img {
-    width: 1rem;
-    margin-right: 5px;
-  }
 `;
 
 export const Link = ({
