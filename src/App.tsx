@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import styled from "styled-components";
 
 import CardContainer from "components/CardContainer";
 import Card from "components/Card";
@@ -11,7 +11,7 @@ import {
 } from "const/CTACardConst";
 import Footer from "components/Footer";
 
-const Container = Styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

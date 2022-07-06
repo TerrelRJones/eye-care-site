@@ -1,5 +1,9 @@
 import { Card } from "./Card";
+<<<<<<< HEAD:src/components/Card/Card.stories.jsx
 import { HeartIcon } from "../../assets/icons/Icons";
+=======
+import { HeartIcon } from "assets/icons/Icons";
+>>>>>>> card-component:src/components/Card/Card.stories.js
 
 export default {
   title: "Card",
