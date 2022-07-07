@@ -24,6 +24,7 @@ const CardStyled = styled.div`
   height: 100%;
   width: 100%;
   max-width: 310px;
+  min-height: 400px;
   background-color: ${Colors.white};
 
   @media (max-width: 576px) {
