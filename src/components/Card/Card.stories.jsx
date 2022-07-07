@@ -1,5 +1,5 @@
 import { Card } from "./Card";
-import { HeartIcon } from "assets/icons/Icons";
+import { HeartIcon } from "assets/icons/Icons.jsx";
 
 export default {
   title: "Card",
