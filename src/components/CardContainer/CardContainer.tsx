@@ -24,15 +24,17 @@ const CardContainerStyled = Styled.div`
   }
 
   .card-container {
-    display: grid;
-    place-items: center;
-    grid-template-columns: repeat(3, 1fr) ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
 
     @media (max-width: 576px) {
-    display: flex;
-    flex-direction: column;
+      display: flex;
+      flex-direction: column;
+    }
   }
-  } 
 `;
 
 export const CardContainer = ({ title, children }: CardContainerProps) => {
