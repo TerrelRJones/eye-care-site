@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Colors } from "styles/colors";
 
 import { ReactComponent as VSPLogo } from "assets/images/vsp_logo_secondary.svg";
-import { FooterLinks } from "const/FooterLinks";
+import { FooterLinks } from "const/FooterLinks.js";
 import Link from "components/Link";
 
 const StyledFooter = styled.footer`
