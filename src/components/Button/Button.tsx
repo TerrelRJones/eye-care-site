@@ -18,7 +18,7 @@ const ButtonStyled = styled.button<
   height: 40px;
   min-width: 240px;
   text-transform: uppercase;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   border: 2px solid ${Colors.mountainBlue};
   transition: 0.2s ease-in-out;
   font-size: 14px;
