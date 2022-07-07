@@ -29,9 +29,6 @@ const CardContainerStyled = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* display: grid;
-    place-items: center;
-    grid-template-columns: repeat(3, 1fr) ; */
 
     @media (max-width: 576px) {
       display: flex;
