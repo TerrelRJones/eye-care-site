@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
 import Button from "components/Button";
+import { ButtonType } from "components/Button/Button";
 
 import { Colors } from "styles/colors";
 
-type CardProps = {
+export type CardProps = {
   title: string;
   text: string;
   icon: React.ReactElement;
   buttonLabel: string;
-  buttonType: string;
+  buttonType: ButtonType;
   disabled: boolean;
   btnIcon?: React.ReactNode;
   onClick: () => void;
