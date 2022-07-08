@@ -1,4 +1,3 @@
-// import { HeartIcon, PinLightIcon, CardIcon } from "assets/icons/Icons";
 import heartIcon from "assets/icons/heart_solid.svg";
 import pinIcon from "assets/icons/pin_solid.svg";
 import cardIcon from "assets/icons/card_solid.svg";
