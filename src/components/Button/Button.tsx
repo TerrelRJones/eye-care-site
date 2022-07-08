@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 
+export type ButtonType = "primary" | "secondary" | "tertiary";
+
 export type ButtonProps = {
   label: string;
-  buttonType: "primary" | "secondary" | "tertiary";
+  buttonType: ButtonType;
   icon?: React.ReactNode;
   disabled?: boolean;
   onClick: () => void;
@@ -16,7 +18,7 @@ const ButtonStyled = styled.button<
   align-items: center;
   justify-content: center;
   height: 40px;
-  width: 240px;
+  min-width: 240px;
   text-transform: uppercase;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   border: 2px solid ${Colors.mountainBlue};
@@ -56,6 +58,10 @@ const ButtonStyled = styled.button<
     align-items: center;
     justify-content: center;
     margin-left: 5px;
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
   }
 `;
 

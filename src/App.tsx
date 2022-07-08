@@ -1,68 +1,31 @@
 import styled from "styled-components";
 
-import Button from "./components/Button";
+import CardContainer from "components/CardContainer";
+import Card from "components/Card";
 
-import { FiLogIn } from "react-icons/fi";
-
-import "./App.css";
+// Cards
+import { benefitCards } from "const/CTACardConst";
 
 const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  height: 25vh;
-  max-width: 1440px;
   margin: 0 auto;
+  padding: 15px;
 `;
 
 function App() {
   return (
-    <Container>
-      <Button
-        buttonType="primary"
-        disabled={false}
-        label="Primary CTA Button"
-        onClick={() => console.log("Primary BTN")}
-      />
-      <Button
-        buttonType="primary"
-        disabled={false}
-        icon={<FiLogIn />}
-        label="Primary CTA Button"
-        onClick={() => console.log("Primary BTN")}
-      />
-      <Button
-        buttonType="primary"
-        disabled={true}
-        label="Primary CTA Button"
-        onClick={() => console.log("Primary BTN")}
-      />
-      <Button
-        buttonType="secondary"
-        disabled={false}
-        label="Secondary Button"
-        onClick={() => console.log("Secondary BTN")}
-      />
-      <Button
-        buttonType="secondary"
-        disabled={true}
-        label="Secondary Button"
-        onClick={() => console.log("Secondary BTN")}
-      />
-      <Button
-        buttonType="tertiary"
-        disabled={false}
-        label="Tertiary Button"
-        onClick={() => console.log("Tertiary BTN")}
-      />
-      <Button
-        buttonType="tertiary"
-        disabled={true}
-        label="Tertiary Button"
-        onClick={() => console.log("Tertiary BTN")}
-      />
-    </Container>
+    <>
+      <Container>
+        <CardContainer title="VSP Benefits are easy to use">
+          {benefitCards.map((cardDetails) => (
+            <Card {...cardDetails} />
+          ))}
+        </CardContainer>
+      </Container>
+    </>
   );
 }
 
