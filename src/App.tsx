@@ -4,12 +4,7 @@ import CardContainer from "components/CardContainer";
 import Card from "components/Card";
 
 // Cards
-import {
-  reviewBenefitsCard,
-  findADoctorCard,
-  viewMemberIdCard,
-} from "const/CTACardConst";
-import Footer from "components/Footer";
+import { benefitCards } from "const/CTACardConst";
 
 const Container = styled.div`
   display: flex;
@@ -20,8 +15,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   margin: 0 auto;
 
-  @media(max-width: 576px){
-
+  @media (max-width: 576px) {
     /* padding: 15px; */
   }
 `;
@@ -31,9 +25,9 @@ function App() {
     <>
       <Container>
         <CardContainer title="VSP Benefits are easy to use">
-          <Card {...reviewBenefitsCard} />
-          <Card {...findADoctorCard} />
-          <Card {...viewMemberIdCard} />
+          {benefitCards.map((cardDetails) => (
+            <Card {...cardDetails} />
+          ))}
         </CardContainer>
         <Footer />
       </Container>
