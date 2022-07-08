@@ -17,10 +17,6 @@ const Container = styled.div`
 
   flex-wrap: wrap;
   margin: 0 auto;
-
-  @media (max-width: 576px) {
-    /* padding: 15px; */
-  }
 `;
 
 function App() {
