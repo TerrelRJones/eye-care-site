@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 
+export type ButtonType = "primary" | "secondary" | "tertiary";
+
 export type ButtonProps = {
   label: string;
-  buttonType: string;
+  buttonType: ButtonType;
   icon?: React.ReactNode;
   disabled?: boolean;
   onClick: () => void;
