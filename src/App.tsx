@@ -15,7 +15,6 @@ const Container = styled.div`
 
   flex-wrap: wrap;
   margin: 0 auto;
-  padding: 16px;
 `;
 
 function App() {
