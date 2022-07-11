@@ -8,8 +8,13 @@ import Footer from "components/Footer";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
-import { filterByJobTitle } from "utils/doctorFunctions";
-import { getArticles, printArticles } from "utils/articleFunctions";
+
+import {
+  CATEGORY,
+  SORT_BY,
+  getArticles,
+  sortArticlesBy,
+} from "utils/articleFunctions";
 
 const Container = styled.div`
   display: flex;
@@ -23,9 +28,8 @@ const Container = styled.div`
 
 function App() {
   useEffect(() => {
-    const articles = getArticles("technology");
-    printArticles(articles);
-    filterByJobTitle("Ophthalmologist");
+    const articles = getArticles(CATEGORY.TECHNOLOGY);
+    sortArticlesBy(SORT_BY.AUTHOR, articles);
   }, []);
   return (
     <>

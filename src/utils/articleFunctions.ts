@@ -1,4 +1,8 @@
-export const getArticles = async (category: string): Promise<any> => {
+export enum CATEGORY {
+  TECHNOLOGY = "technology",
+}
+
+export const getArticles = async (category: CATEGORY): Promise<any> => {
   try {
     const data = await fetch(
       `https://inshortsapi.vercel.app/news?category=${category}`
@@ -23,7 +27,16 @@ export const printArticles = async (articles: Promise<any>) => {
   return data;
 };
 
-export const sortArticlesBy = async (sortType: string, arr: Promise<[]>) => {
+export enum SORT_BY {
+  AUTHOR = "author",
+  CONTENT = "content",
+  DATE = "date",
+  ID = "id",
+  TITLE = "title",
+  URL = "url",
+}
+
+export const sortArticlesBy = async (sortType: SORT_BY, arr: Promise<[]>) => {
   const res = await arr;
 
   const sorted = res.sort((a, b) =>
