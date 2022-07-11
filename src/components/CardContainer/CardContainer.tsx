@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import styled from "styled-components";
 
 import { Colors } from "styles/colors";
 
@@ -7,13 +7,14 @@ type CardContainerProps = {
   children: React.ReactNode;
 };
 
-const CardContainerStyled = Styled.div`
-    width: 100%;
-    max-width: 1010px;
+const CardContainerStyled = styled.div`
+  width: 100%;
+  max-width: 1010px;
+  margin-bottom: 100px;
 
   .card-container__title {
     color: ${Colors.mountainBlue};
-    font-family: 'Oswald';
+    font-family: "Oswald";
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,8 +22,7 @@ const CardContainerStyled = Styled.div`
     letter-spacing: 0;
     line-height: 47px;
     text-align: center;
-  margin-bottom: 60px;
-
+    margin-bottom: 60px;
   }
 
   .card-container {
@@ -30,10 +30,10 @@ const CardContainerStyled = Styled.div`
     align-items: center;
     justify-content: space-between;
 
-
     @media (max-width: 850px) {
       display: flex;
       flex-direction: column;
+      padding: 0 16px;
     }
   }
 `;

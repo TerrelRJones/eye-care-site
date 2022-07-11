@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import CardContainer from "components/CardContainer";
 import Card from "components/Card";
+import Footer from "components/Footer";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
@@ -12,11 +13,12 @@ import { getArticles, printArticles } from "utils/articleFunctions";
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
   flex-wrap: wrap;
   margin: 0 auto;
-  padding: 16px;
 `;
 
 function App() {
@@ -33,6 +35,7 @@ function App() {
             <Card key={cardDetails.title} {...cardDetails} />
           ))}
         </CardContainer>
+        <Footer />
       </Container>
     </>
   );
