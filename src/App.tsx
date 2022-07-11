@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import styled from "styled-components";
 
 import CardContainer from "components/CardContainer";
@@ -5,6 +7,8 @@ import Card from "components/Card";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
+import { filterByJobTitle } from "utils/doctorFunctions";
+import { getArticles, printArticles } from "utils/articleFunctions";
 
 const Container = styled.div`
   display: flex;
@@ -16,6 +20,11 @@ const Container = styled.div`
 `;
 
 function App() {
+  useEffect(() => {
+    const articles = getArticles("technology");
+    printArticles(articles);
+    filterByJobTitle("Ophthalmologist");
+  }, []);
   return (
     <>
       <Container>
