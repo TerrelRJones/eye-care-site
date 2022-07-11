@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Colors } from "styles/colors";
 
 import { ReactComponent as VSPLogo } from "assets/images/vsp_logo_secondary.svg";
-import { FooterLinks } from "const/FooterLinks";
+import { FooterLink, FOOTER_LINKS } from "const/FooterLinks";
 import Link from "components/Link";
 
 const StyledFooter = styled.footer`
@@ -78,11 +78,11 @@ export const Footer = () => {
     <StyledFooter>
       <FooterContainer>
         <FooterCardContainer>
-          {FooterLinks.map(({ title, links }: any) => (
-            <FooterCard key={title}>
+          {FOOTER_LINKS.map(({ title, links }: FooterLink) => (
+            <FooterCard>
               <div className="title">{title}</div>
-              {links.map(({ text, url, image, alt }: any) => (
-                <div className="links" key={text}>
+              {links.map(({ text, url, image, alt }) => (
+                <div className="links">
                   <Link url={url} text={text} image={image} alt={alt} />
                 </div>
               ))}
@@ -93,7 +93,7 @@ export const Footer = () => {
           <div className="logo">
             <VSPLogo />
           </div>
-          <p>© 2018 Vision Service Plan.</p>
+          <p>&copy; 2018 Vision Service Plan.</p>
           <p>All rights reserved.</p>
         </LogoContainer>
       </FooterContainer>
