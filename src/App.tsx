@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 auto;
-  padding: 15px;
+  padding: 16px;
 `;
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <Container>
         <CardContainer title="VSP Benefits are easy to use">
           {benefitCards.map((cardDetails) => (
-            <Card {...cardDetails} />
+            <Card key={cardDetails.title} {...cardDetails} />
           ))}
         </CardContainer>
       </Container>
