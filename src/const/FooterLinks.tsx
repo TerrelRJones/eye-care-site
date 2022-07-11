@@ -4,7 +4,7 @@ import InstagramIcon from "assets/icons/Instagram.png";
 import YouTubeIcon from "assets/icons/YouTube.png";
 import PinterestIcon from "assets/icons/pinterest-icon.png";
 
-export const FooterLinks = [
+export const FOOTER_LINKS = [
   {
     title: "About",
     links: [
