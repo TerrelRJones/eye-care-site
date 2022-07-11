@@ -30,7 +30,7 @@ const CardContainerStyled = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 850px) {
+    @media (max-width: 992px) {
       display: flex;
       flex-direction: column;
       padding: 0 16px;

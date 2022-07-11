@@ -19,7 +19,7 @@ const ContactUsStyled = styled.div`
   margin-bottom: 40px;
   background-color: ${Colors.mountainBlue};
 
-  @media (max-width: 850px) {
+  @media (max-width: 992px) {
     flex-direction: column;
     background-color: ${Colors.white};
     margin-bottom: 0;
@@ -34,7 +34,7 @@ const ContentSectionStyledContainer = styled.div`
   justify-content: center;
   gap: 30px;
 
-  @media (max-width: 850px) {
+  @media (max-width: 992px) {
     flex-direction: column;
     position: static;
     width: 100%;
@@ -77,7 +77,7 @@ const RightSection = styled.section`
   min-height: 208px;
   background-color: ${Colors.whiteOpacity};
 
-  @media (max-width: 850px) {
+  @media (max-width: 992px) {
     width: 100%;
     max-width: 669px;
   }
