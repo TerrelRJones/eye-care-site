@@ -7,8 +7,8 @@ import { CardProps } from "components/Card/Card";
 export const benefitCards: CardProps[] = [
   {
     title: "Review your benefits",
-    text: "Review your benefits with VSP network doctors",
-    icon: <img src={heartIcon} alt="Member ID Icon" />,
+    text: "Review your benefits with VSP network doctors.",
+    icon: <img src={heartIcon} alt="Heart Icon" />,
     buttonType: "primary",
     buttonLabel: "View Benefits",
     disabled: false,
