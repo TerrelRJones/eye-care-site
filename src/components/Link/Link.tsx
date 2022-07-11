@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 
-type LinkProps = {
+export type LinkProps = {
   url: string;
-  alt: string;
   text: string;
   image?: string;
+  alt?: string;
 };
 
 const LinkStyled = styled.a`
