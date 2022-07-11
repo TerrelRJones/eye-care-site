@@ -3,17 +3,11 @@ import { Colors } from "styles/colors";
 
 export type LinkProps = {
   url: string;
-<<<<<<< HEAD
-  alt?: string;
   text: string;
   image?: string;
+  alt?: string;
   color?: string;
   hoverColor?: string;
-=======
-  text: string;
-  image?: string;
-  alt?: string;
->>>>>>> footer-component
 };
 
 const LinkStyled = styled.a<Pick<LinkProps, "color" | "hoverColor">>`
