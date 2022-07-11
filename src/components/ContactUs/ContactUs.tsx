@@ -42,22 +42,20 @@ const ContactUsStyled = styled.div`
 `;
 
 const ContactUsContainer = styled.div`
-  width: 1200px;
-  height: 350px;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 350px;
   background-image: url(${BG_IMAGE});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
-  @media (max-width: 850px) {
-    width: 100%;
-  }
 `;
 
 const LeftSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   max-width: 669px;
   min-height: 208px;
   background-color: ${Colors.whiteOpacity};
@@ -65,10 +63,6 @@ const LeftSection = styled.section`
   .test {
     display: flex;
     width: 80%;
-  }
-
-  @media (max-width: 850px) {
-    width: 100%;
   }
 `;
 
@@ -108,8 +102,8 @@ const RightContent = styled.div`
 
 const VerticalDesignElement = styled.div`
   box-sizing: border-box;
-  height: 67px;
-  width: 3px;
+  max-height: 67px;
+  max-width: 3px;
   border: 4px solid ${Colors.lime};
   margin-right: 20px;
 `;
