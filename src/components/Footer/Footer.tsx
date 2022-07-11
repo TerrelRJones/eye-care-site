@@ -2,15 +2,8 @@ import styled from "styled-components";
 import { Colors } from "styles/colors";
 
 import { ReactComponent as VSPLogo } from "assets/images/vsp_logo_secondary.svg";
-import { FOOTER_LINKS } from "const/FooterLinks";
+import { FooterLinkProps, FOOTER_LINKS } from "const/FooterLinks";
 import Link from "components/Link";
-
-type LinkProps = {
-  text: string;
-  url: string;
-  image: string;
-  alt: string;
-};
 
 const StyledFooter = styled.footer`
   background-color: ${Colors.mountainBlue};
@@ -85,10 +78,10 @@ export const Footer = () => {
     <StyledFooter>
       <FooterContainer>
         <FooterCardContainer>
-          {FOOTER_LINKS.map(({ title, links }: any) => (
+          {FOOTER_LINKS.map(({ title, links }: FooterLinkProps) => (
             <FooterCard>
               <div className="title">{title}</div>
-              {links.map(({ text, url, image, alt }: LinkProps) => (
+              {links.map(({ text, url, image, alt }) => (
                 <div className="links">
                   <Link url={url} text={text} image={image} alt={alt} />
                 </div>
