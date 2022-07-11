@@ -22,17 +22,18 @@ const CardContainerStyled = styled.div`
     letter-spacing: 0;
     line-height: 47px;
     text-align: center;
+    margin-bottom: 60px;
   }
 
   .card-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
 
-    @media (max-width: 576px) {
+    @media (max-width: 850px) {
       display: flex;
       flex-direction: column;
+      padding: 0 16px;
     }
   }
 `;

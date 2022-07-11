@@ -26,7 +26,7 @@ function App() {
         <ContactUs title="Contact Us" linksTitle="Quick Links" />
         <CardContainer title="VSP Benefits are easy to use">
           {benefitCards.map((cardDetails) => (
-            <Card {...cardDetails} />
+            <Card key={cardDetails.title} {...cardDetails} />
           ))}
         </CardContainer>
         <Footer />
