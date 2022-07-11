@@ -19,25 +19,29 @@ const ContactUsStyled = styled.div`
   margin-bottom: 40px;
   background-color: ${Colors.mountainBlue};
 
-  .sections {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* flex-wrap: wrap; */
-    gap: 30px;
-  }
-
   @media (max-width: 850px) {
     flex-direction: column;
     background-color: ${Colors.white};
     margin-bottom: 0;
     gap: 0;
+  }
+`;
 
-    .sections {
-      flex-direction: column;
-      position: static;
-    }
+const ContentSectionStyledContainer = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    position: static;
+    width: 100%;
+    box-shadow: inset 0 0 2px 0 rgba(0, 0, 0, 0.3),
+      0 0 16px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+    gap: 0;
   }
 `;
 
@@ -59,11 +63,11 @@ const LeftSection = styled.section`
   max-width: 669px;
   min-height: 208px;
   background-color: ${Colors.whiteOpacity};
+`;
 
-  .test {
-    display: flex;
-    width: 80%;
-  }
+const LeftSectionContainer = styled.div`
+  display: flex;
+  padding: 0 16px;
 `;
 
 const RightSection = styled.section`
@@ -75,17 +79,20 @@ const RightSection = styled.section`
 
   @media (max-width: 850px) {
     width: 100%;
+    max-width: 669px;
   }
 `;
 
 const RightContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
+  padding: 0 16px;
 
   .title {
     color: ${Colors.mountainBlue};
     font-family: "Open Sans";
+    font-weight: 800;
     font-size: 14px;
     letter-spacing: 0;
     line-height: 40px;
@@ -112,6 +119,7 @@ const Text = styled.div`
   h1 {
     color: ${Colors.mountainBlue};
     font-family: Oswald;
+    font-weight: 400;
     font-size: 38px;
     letter-spacing: 0;
     line-height: 41.8px;
@@ -131,9 +139,9 @@ export const ContactUs = ({ title, linksTitle }: ContactUsProps) => {
   return (
     <ContactUsStyled>
       <ContactUsContainer />
-      <div className="sections">
+      <ContentSectionStyledContainer>
         <LeftSection>
-          <div className="test">
+          <LeftSectionContainer>
             <VerticalDesignElement />
             <Text>
               <h1>{title}</h1>
@@ -142,7 +150,7 @@ export const ContactUs = ({ title, linksTitle }: ContactUsProps) => {
                 bibendum la elementorci ligula, ornare vel mattis in at enim.
               </p>
             </Text>
-          </div>
+          </LeftSectionContainer>
         </LeftSection>
         <RightSection>
           <RightContent>
@@ -162,7 +170,7 @@ export const ContactUs = ({ title, linksTitle }: ContactUsProps) => {
             </div>
           </RightContent>
         </RightSection>
-      </div>
+      </ContentSectionStyledContainer>
     </ContactUsStyled>
   );
 };
