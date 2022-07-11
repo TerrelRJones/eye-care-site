@@ -60,7 +60,7 @@ const ButtonStyled = styled.button<
     margin-left: 5px;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 850px) {
     width: 100%;
   }
 `;

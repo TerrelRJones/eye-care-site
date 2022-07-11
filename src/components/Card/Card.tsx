@@ -25,18 +25,21 @@ const CardStyled = styled.div`
   height: 100%;
   width: 100%;
   max-width: 310px;
-  min-height: 400px;
+  min-height: 288px;
   background-color: ${Colors.white};
 
-  @media (max-width: 576px) {
-    height: 350px;
-    width: 100%;
+  @media (max-width: 850px) {
+    margin-bottom: 60px;
 
     .button-container {
       display: flex;
       justify-content: center;
       width: 100%;
     }
+  }
+
+  @media (max-width: 576px) {
+    max-width: 100%;
   }
 `;
 
@@ -49,7 +52,7 @@ const CardContainer = styled.div`
     color: ${Colors.mountainBlue};
     font-family: "Oswald";
     font-size: 22px;
-    font-weight: "600";
+    font-weight: 400;
     letter-spacing: 0;
     line-height: 24.2px;
     text-align: center;
@@ -58,7 +61,6 @@ const CardContainer = styled.div`
 `;
 
 const Icon = styled.div`
-  margin-top: 60px;
   margin-bottom: 10px;
 `;
 
@@ -70,6 +72,8 @@ const Text = styled.p`
   letter-spacing: 0;
   line-height: 20px;
   text-align: center;
+  padding: 10px;
+  margin: 0;
 `;
 
 export const Card = ({
