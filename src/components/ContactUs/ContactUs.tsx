@@ -24,12 +24,12 @@ const ContactUsStyled = Styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         gap: 30px;
 
     }
 
-    @media(max-width: 576px){
+    @media(max-width: 850px){
         flex-direction: column;
         background-color: ${Colors.white};
         margin-bottom: 0;
@@ -37,6 +37,7 @@ const ContactUsStyled = Styled.div`
 
 
         .sections {
+            flex-direction: column;
             position: static;
         }
     }
@@ -51,7 +52,7 @@ const ContactUsContainer = Styled.div`
     background-position: center; 
     background-size: cover;
 
-    @media(max-width: 576px){
+    @media(max-width: 850px){
         width: 100%;
     }
 `;
@@ -60,8 +61,8 @@ const LeftSection = Styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 669px;
-    height: 208px;
+    max-width: 669px;
+    min-height: 208px;
     background-color: ${Colors.whiteOpacity};
 
     .test {
@@ -69,7 +70,7 @@ const LeftSection = Styled.section`
         width: 80%;
     }
 
-    @media(max-width: 576px){
+    @media(max-width: 850px){
         width: 100%;
     }
 `;
@@ -77,11 +78,11 @@ const LeftSection = Styled.section`
 const RightSection = Styled.section`
     display: flex;
     justify-content: center;
-    width: 270px;
-    height: 208px;
+    min-width: 270px;
+    min-height: 208px;
     background-color: ${Colors.whiteOpacity};
 
-    @media(max-width: 576px){
+    @media(max-width: 850px){
         width: 100%;
     }
 `;
