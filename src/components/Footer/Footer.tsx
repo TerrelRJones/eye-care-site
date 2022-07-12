@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
+import { BREAK_POINTS } from "const/breakPoints";
 
 import { ReactComponent as VSPLogo } from "assets/images/vsp_logo_secondary.svg";
 import { FooterLink, FOOTER_LINKS } from "const/FooterLinks";
@@ -25,7 +26,7 @@ const FooterCardContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 40px;
 
-  @media (max-width: 576px) {
+  ${BREAK_POINTS.mobile} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
@@ -67,7 +68,7 @@ const LogoContainer = styled.div`
     margin-right: 5px;
   }
 
-  @media (max-width: 576px) {
+  ${BREAK_POINTS.mobile} {
     flex-direction: column;
     align-items: center;
   }

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
+import { BREAK_POINTS } from "const/breakPoints";
 
 import BG_IMAGE from "assets/images/background_image.jpeg";
 import Link from "components/Link";
@@ -20,7 +21,7 @@ const ContactUsStyled = styled.div`
   margin-bottom: 40px;
   background-color: ${Colors.mountainBlue};
 
-  @media (max-width: 992px) {
+  ${BREAK_POINTS.tablet} {
     flex-direction: column;
     background-color: ${Colors.white};
     margin-bottom: 0;
@@ -35,7 +36,7 @@ const ContentSectionStyledContainer = styled.div`
   justify-content: center;
   gap: 30px;
 
-  @media (max-width: 992px) {
+  ${BREAK_POINTS.tablet} {
     flex-direction: column;
     position: static;
     width: 100%;
@@ -65,17 +66,19 @@ const LeftSection = styled.section`
   min-height: 208px;
   background-color: ${Colors.whiteOpacity};
 
-  @media (max-width: 576px) {
+  ${BREAK_POINTS.tablet} {
     min-height: 0;
+    padding-top: 20px;
   }
 `;
 
 const LeftSectionContainer = styled.div`
   display: flex;
-  padding: 0 16px;
+  margin-left: 52.5px;
 
-  @media (max-width: 576px) {
-    padding-top: 20px;
+  ${BREAK_POINTS.tablet} {
+    padding: 0 16px;
+    margin-left: 0;
   }
 `;
 
@@ -86,7 +89,7 @@ const RightSection = styled.section`
   min-height: 208px;
   background-color: ${Colors.whiteOpacity};
 
-  @media (max-width: 992px) {
+  ${BREAK_POINTS.tablet} {
     width: 100%;
     max-width: 669px;
   }
@@ -123,7 +126,7 @@ const VerticalDesignElement = styled.div`
   border: 2px solid ${Colors.lime};
   margin-right: 20px;
 
-  @media (max-width: 576px) {
+  ${BREAK_POINTS.mobile} {
     margin-right: 10px;
     max-height: 74px;
     max-width: 3px;
@@ -149,10 +152,10 @@ const Text = styled.div`
     letter-spacing: 0;
     line-height: 25px;
     margin: 0;
-    /* padding-top: 5px; */
+    max-width: 600px;
   }
 
-  @media (max-width: 576px) {
+  ${BREAK_POINTS.mobile} {
     h1 {
       font-size: 26;
     }
