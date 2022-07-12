@@ -3,7 +3,8 @@ import { Colors } from "styles/colors";
 
 import BG_IMAGE from "assets/images/background_image.jpeg";
 import Link from "components/Link";
-import { ContactUsLinks } from "const/ContactUsLinks";
+
+import { CONTACT_US_LINKS } from "const/ContactUsLinks";
 
 type ContactUsProps = {
   title: string;
@@ -187,7 +188,7 @@ export const ContactUs = ({ title, linksTitle }: ContactUsProps) => {
               <h3 className="title">{linksTitle}</h3>
             </div>
             <div className="links">
-              {ContactUsLinks.map(({ title, url }: any) => (
+              {CONTACT_US_LINKS.map(({ title, url }) => (
                 <Link
                   key={title}
                   url={url}
