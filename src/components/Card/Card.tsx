@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BREAK_POINTS } from "const/breakPoints";
 
 import Button from "components/Button";
 import { ButtonType } from "components/Button/Button";
@@ -28,7 +29,7 @@ const CardStyled = styled.div`
   min-height: 288px;
   background-color: ${Colors.white};
 
-  @media (max-width: 850px) {
+  ${BREAK_POINTS.tablet} {
     margin-bottom: 60px;
 
     .button-container {
@@ -38,7 +39,7 @@ const CardStyled = styled.div`
     }
   }
 
-  @media (max-width: 576px) {
+  ${BREAK_POINTS.mobile} {
     max-width: 100%;
   }
 `;

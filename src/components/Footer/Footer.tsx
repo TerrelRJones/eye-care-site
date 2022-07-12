@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Colors } from "styles/colors";
+import { BREAK_POINTS } from "const/breakPoints";
 
 import VSP_LOGO from "assets/images/vsp_logo_secondary.svg";
 import { FooterLink, FOOTER_LINKS } from "const/FooterLinks";
@@ -31,7 +32,7 @@ const FooterCardContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 576px) {
+  ${BREAK_POINTS.mobile} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 0 16px;
@@ -78,7 +79,7 @@ const LogoContainer = styled.div`
     font-size: 12px;
   }
 
-  @media (max-width: 576px) {
+  ${BREAK_POINTS.mobile} {
     flex-direction: column;
     align-items: center;
     margin-top: 40px;
@@ -104,9 +105,9 @@ export const Footer = () => {
     <StyledFooter>
       <FooterContainer>
         <FooterCardContainer>
-          {FOOTER_LINKS.map(({ title, abrvTitle, links }: FooterLink) => (
+          {FOOTER_LINKS.map(({ title, links }: FooterLink) => (
             <FooterCard key={title}>
-              <LinkTitle>{isMobile && abrvTitle ? abrvTitle : title}</LinkTitle>
+              <div className="title">{title}</div>
               {links.map(({ text, url, image, alt }) => (
                 <div key={text} className="links">
                   <Link url={url} text={text} image={image} alt={alt} />

@@ -1,11 +1,22 @@
 import Button from ".";
+import styled from "styled-components";
 
 export default {
   title: "Buttons",
   component: Button,
 };
 
-const Template = (args) => <Button {...args} />;
+const Container = styled.div`
+  display: grid;
+  place-items: center;
+  height: 100vh;
+`;
+
+const Template = (args) => (
+  <Container>
+    <Button {...args} />
+  </Container>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

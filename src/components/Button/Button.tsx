@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 
+import { BREAK_POINTS } from "const/breakPoints";
+
 export type ButtonType = "primary" | "secondary" | "tertiary";
 
 export type ButtonProps = {
@@ -60,7 +62,7 @@ const ButtonStyled = styled.button<
     margin-left: 5px;
   }
 
-  @media (max-width: 850px) {
+  ${BREAK_POINTS.tablet} {
     width: 100%;
   }
 `;
