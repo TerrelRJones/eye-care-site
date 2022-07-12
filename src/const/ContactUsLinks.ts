@@ -1,4 +1,9 @@
-export const ContactUsLinks = [
+type ContactUsLinksType = {
+  title: string;
+  url: string;
+};
+
+export const CONTACT_US_LINKS: ContactUsLinksType[] = [
   {
     title: "Call Us",
     url: "/",
@@ -12,4 +17,3 @@ export const ContactUsLinks = [
     url: "/",
   },
 ];
-
