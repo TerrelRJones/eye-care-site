@@ -79,10 +79,10 @@ export const Footer = () => {
       <FooterContainer>
         <FooterCardContainer>
           {FOOTER_LINKS.map(({ title, links }: FooterLink) => (
-            <FooterCard>
+            <FooterCard key={title}>
               <div className="title">{title}</div>
               {links.map(({ text, url, image, alt }) => (
-                <div className="links">
+                <div key={text} className="links">
                   <Link url={url} text={text} image={image} alt={alt} />
                 </div>
               ))}

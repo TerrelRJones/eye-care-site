@@ -28,7 +28,7 @@ const CardStyled = styled.div`
   min-height: 288px;
   background-color: ${Colors.white};
 
-  @media (max-width: 850px) {
+  @media (max-width: 992px) {
     margin-bottom: 60px;
 
     .button-container {
