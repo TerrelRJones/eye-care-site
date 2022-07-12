@@ -9,7 +9,10 @@ export default {
 };
 
 const Container = Styled.div`
+display: grid;
+place-items: center;
     background-color: ${Colors.mountainBlue};
+    height: 100vh;
 `;
 
 const Template = (args) => (
@@ -36,8 +39,6 @@ export const LinkWithColor = Template.bind({});
 LinkWithColor.args = {
   url: "/",
   text: "Default Link",
-  image: InstagramIcon,
-  alt: "Instagram Icon",
   color: `${Colors.lime}`,
 };
 
@@ -45,8 +46,6 @@ export const LinkHovered = Template.bind({});
 LinkHovered.args = {
   url: "/",
   text: "Default Link",
-  image: InstagramIcon,
-  alt: "Instagram Icon",
   color: `${Colors.white}`,
   hoverColor: `${Colors.icyBlue}`,
 };
