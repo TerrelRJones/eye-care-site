@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
-import { BREAK_POINTS } from "const/breakPoints";
+import { BREAK_POINTS } from "const/breakpoints";
 
 import BG_IMAGE from "assets/images/background_image.jpeg";
 import Link from "components/Link";
