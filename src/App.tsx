@@ -2,8 +2,10 @@ import { useEffect } from "react";
 
 import styled from "styled-components";
 
-import CardContainer from "components/CardContainer";
+// components
 import Card from "components/Card";
+import CardContainer from "components/CardContainer";
+import ContactUs from "components/ContactUs";
 import Footer from "components/Footer";
 
 // Cards
@@ -34,6 +36,7 @@ function App() {
   return (
     <>
       <Container>
+        <ContactUs title="Contact Us" linksTitle="Quick Links" />
         <CardContainer title="VSP Benefits are easy to use">
           {benefitCards.map((cardDetails) => (
             <Card key={cardDetails.title} {...cardDetails} />
