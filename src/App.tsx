@@ -10,8 +10,13 @@ import Footer from "components/Footer";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
-
-import { CATEGORY, getArticles, printArticles } from "utils/articleFunctions";
+import {
+  filterByJobTitle,
+  filterByNetwork,
+  JOB_TITLE,
+  NETWORK,
+  searchByName,
+} from "utils/doctorFunctions";
 
 const Container = styled.div`
   display: flex;
@@ -26,9 +31,9 @@ const Container = styled.div`
 
 function App() {
   useEffect(() => {
-    const articles = getArticles(CATEGORY.TECHNOLOGY);
-
-    printArticles(articles);
+    filterByNetwork(NETWORK.ADVANTAGE);
+    filterByJobTitle(JOB_TITLE.OPTOMETRIST);
+    searchByName("Va");
   }, []);
 
   return (
