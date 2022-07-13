@@ -11,7 +11,13 @@ import Footer from "components/Footer";
 // Cards
 import { benefitCards } from "const/CTACardConst";
 
-import { CATEGORY, getArticles, printArticles } from "utils/articleFunctions";
+import {
+  CATEGORY,
+  getArticles,
+  printArticles,
+  sortArticlesBy,
+  SORT_BY,
+} from "utils/articleFunctions";
 
 const Container = styled.div`
   display: flex;
@@ -29,6 +35,7 @@ function App() {
     const articles = getArticles(CATEGORY.TECHNOLOGY);
 
     printArticles(articles);
+    sortArticlesBy(SORT_BY.CONTENT, articles);
   }, []);
 
   return (
