@@ -8,6 +8,8 @@ import Footer from "components/Footer";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
+import { useEffect } from "react";
+import { passwordValidation } from "utils/passwordValidator";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +23,15 @@ const Container = styled.div`
 `;
 
 function App() {
+  useEffect(() => {
+    const pass1 = passwordValidation("password");
+    const pass2 = passwordValidation("Jones");
+    const pass3 = passwordValidation("JonesTerrel");
+
+    console.log(pass1);
+    console.log(pass2);
+    console.log(pass3);
+  });
   return (
     <>
       <Container>
