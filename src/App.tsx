@@ -14,7 +14,7 @@ import {
   filterByJobTitle,
   filterByNetwork,
   JobTitle,
-  Network
+  Network,
   searchByName,
 } from "utils/doctorFunctions";
 
