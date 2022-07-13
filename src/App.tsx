@@ -12,11 +12,11 @@ import Footer from "components/Footer";
 import { benefitCards } from "const/CTACardConst";
 
 import {
-  CATEGORY,
+  Category,
   getArticles,
   printArticles,
   sortArticlesBy,
-  SORT_BY,
+  SortBy,
 } from "utils/articleFunctions";
 
 const Container = styled.div`
@@ -32,10 +32,10 @@ const Container = styled.div`
 
 function App() {
   useEffect(() => {
-    const articles = getArticles(CATEGORY.TECHNOLOGY);
+    const articles = getArticles(Category.TECHNOLOGY);
 
     printArticles(articles);
-    sortArticlesBy(SORT_BY.CONTENT, articles);
+    sortArticlesBy(SortBy.CONTENT, articles);
   }, []);
 
   return (
