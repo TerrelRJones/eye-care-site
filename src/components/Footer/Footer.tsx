@@ -101,6 +101,7 @@ export const Footer = () => {
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
   });
+
   return (
     <StyledFooter>
       <FooterContainer>
