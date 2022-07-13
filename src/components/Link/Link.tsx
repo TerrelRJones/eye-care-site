@@ -16,8 +16,8 @@ const LinkStyled = styled.a<Pick<LinkProps, "color" | "hoverColor">>`
   text-decoration: none;
   color: ${({ color }) => color || Colors.white};
   font-family: "Open Sans";
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 400;
   letter-spacing: 1px;
   line-height: 20px;
   margin-bottom: 8px;
