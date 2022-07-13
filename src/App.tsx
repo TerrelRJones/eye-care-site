@@ -18,6 +18,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
 
   flex-wrap: wrap;
   margin: 0 auto;
@@ -39,6 +40,7 @@ function App() {
             <Card key={cardDetails.title} {...cardDetails} />
           ))}
         </CardContainer>
+
         <Footer />
       </Container>
     </>

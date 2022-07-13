@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
-import { BREAK_POINTS } from "const/breakPoints";
+import { BREAK_POINTS } from "const/breakpoints";
 
 import BG_IMAGE from "assets/images/background_image.jpeg";
 import Link from "components/Link";
@@ -47,14 +47,17 @@ const ContentSectionStyledContainer = styled.div`
   }
 `;
 
-const ContactUsContainer = styled.div`
+const BackgroundImage = styled.div`
   width: 100%;
-  max-width: 1200px;
-  min-height: 350px;
+  min-height: 348px;
   background-image: url(${BG_IMAGE});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  ${BREAK_POINTS.mobile} {
+    min-height: 164px;
+  }
 `;
 
 const LeftSection = styled.section`
@@ -79,6 +82,7 @@ const LeftSectionContainer = styled.div`
   ${BREAK_POINTS.tablet} {
     padding: 0 16px;
     margin-left: 0;
+    width: 100%;
   }
 `;
 
@@ -126,8 +130,8 @@ const VerticalDesignElement = styled.div`
   border: 2px solid ${Colors.lime};
   margin-right: 20px;
 
-  ${BREAK_POINTS.mobile} {
-    margin-right: 10px;
+  ${BREAK_POINTS.tablet} {
+    margin-right: 9px;
     max-height: 74px;
     max-width: 3px;
     border: 2px solid ${Colors.lime};
@@ -171,7 +175,7 @@ const Text = styled.div`
 export const ContactUs = ({ title, linksTitle }: ContactUsProps) => {
   return (
     <ContactUsStyled>
-      <ContactUsContainer />
+      <BackgroundImage />
       <ContentSectionStyledContainer>
         <LeftSection>
           <LeftSectionContainer>

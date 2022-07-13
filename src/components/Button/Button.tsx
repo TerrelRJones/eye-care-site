@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 
-import { BREAK_POINTS } from "const/breakPoints";
+import { BREAK_POINTS } from "const/breakpoints";
 
 export type ButtonType = "primary" | "secondary" | "tertiary";
 

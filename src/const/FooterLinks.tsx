@@ -8,6 +8,7 @@ import { LinkProps } from "components/Link/Link";
 
 export type FooterLink = {
   title: string;
+  abrvTitle?: string;
   links: LinkProps[];
 };
 
@@ -34,7 +35,8 @@ export const FOOTER_LINKS: FooterLink[] = [
     ],
   },
   {
-    title: "Legal",
+    title: "Legal and Privacy",
+    abrvTitle: "Legal",
     links: [
       { text: "Legal", url: "." },
       { text: "Non-Discrimination Statement", url: "." },
