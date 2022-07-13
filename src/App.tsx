@@ -13,8 +13,8 @@ import { benefitCards } from "const/CTACardConst";
 import {
   filterByJobTitle,
   filterByNetwork,
-  JOB_TITLE,
-  NETWORK,
+  JobTitle,
+  Network
   searchByName,
 } from "utils/doctorFunctions";
 
@@ -31,8 +31,8 @@ const Container = styled.div`
 
 function App() {
   useEffect(() => {
-    filterByNetwork(NETWORK.ADVANTAGE);
-    filterByJobTitle(JOB_TITLE.OPTOMETRIST);
+    filterByNetwork(Network.ADVANTAGE);
+    filterByJobTitle(JobTitle.OPTOMETRIST);
     searchByName("Va");
   }, []);
 

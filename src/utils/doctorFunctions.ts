@@ -1,23 +1,23 @@
 import docData from "../../src/data/docData";
 
-export enum NETWORK {
+export enum Network {
   ADVANTAGE = "Advantage",
   SIGNATURE = "Signature",
   CHOICE = "Choice",
 }
 
-export enum JOB_TITLE {
+export enum JobTitle {
   OPTOMETRIST = "Optometrist",
 }
 
-export const filterByNetwork = (network: NETWORK) => {
+export const filterByNetwork = (network: Network) => {
   const newDocs = docData.filter(({ doctor_networks }) =>
     doctor_networks?.includes(network)
   );
   console.log(newDocs);
 };
 
-export const filterByJobTitle = (title: JOB_TITLE) => {
+export const filterByJobTitle = (title: JobTitle) => {
   const newDocs = docData.filter(({ job_title }) => job_title === title);
   console.log(newDocs);
 };
