@@ -31,7 +31,7 @@ const LinkStyled = styled.a<Pick<LinkProps, "color" | "hoverColor">>`
 
   img {
     width: 1rem;
-    margin-right: 5px;
+    margin-right: 10px;
   }
 `;
 

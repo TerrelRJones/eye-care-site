@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BREAK_POINTS } from "const/breakPoints";
+import { BREAK_POINTS } from "const/breakpoints";
 
 import { Colors } from "styles/colors";
 
