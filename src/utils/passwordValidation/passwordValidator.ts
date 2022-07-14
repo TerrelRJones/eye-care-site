@@ -12,7 +12,7 @@ export const passwordValidation = (password: string, username: string) => {
   if (checkPass.toLowerCase().includes(username.toLowerCase()))
     return "Password can not contain username or name.";
 
-  passwordValidationChecks.forEach(({ check, regEx, message }) => {
+  passwordValidationChecks.forEach(({ regEx, message }) => {
     if (!checkPass.match(regEx)) {
       errors.push(message);
     }
