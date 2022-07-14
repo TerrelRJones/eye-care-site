@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 
 // components
@@ -8,6 +9,14 @@ import Footer from "components/Footer";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
+
+import {
+  Category,
+  getArticles,
+  printArticles,
+  sortArticlesBy,
+  SortBy,
+} from "utils/articleFunctions";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +30,13 @@ const Container = styled.div`
 `;
 
 function App() {
+  useEffect(() => {
+    const articles = getArticles(Category.TECHNOLOGY);
+
+    printArticles(articles);
+    sortArticlesBy(SortBy.CONTENT, articles);
+  }, []);
+
   return (
     <>
       <Container>
