@@ -30,22 +30,4 @@ describe("TEST for password function", () => {
 
     expect(pass[0]).toBe("Password must contain an uppercase character.");
   });
-
-  // it("Should return 'Must contain a lowercase character.'", () => {
-  //   const pass = passwordValidation("TRFERSWEFFDSDF");
-
-  //   expect(pass).toBe("Must contain a lowercase character.");
-  // });
-
-  // it("Should return 'Must contain a number.'", () => {
-  //   const pass = passwordValidation("Jonestrrrrr");
-
-  //   expect(pass).toBe("Must contain a number.");
-  // });
-
-  // it("Should return 'Must contain a special character.'", () => {
-  //   const pass = passwordValidation("Jonestrrr3rr");
-
-  //   expect(pass).toBe("Must contain a special character.");
-  // });
 });
