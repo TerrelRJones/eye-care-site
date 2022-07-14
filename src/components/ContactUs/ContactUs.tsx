@@ -89,7 +89,6 @@ const LeftSectionContainer = styled.div`
 const RightSection = styled.section`
   display: flex;
   justify-content: center;
-  min-width: 270px;
   min-height: 208px;
   background-color: ${Colors.whiteOpacity};
 
@@ -103,7 +102,10 @@ const RightContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 0 16px;
+  padding-left: 34px;
+  padding-right: 84px;
+  padding-bottom: 26px;
+  padding-top: 22px;
 
   .title {
     color: ${Colors.mountainBlue};
@@ -111,7 +113,6 @@ const RightContent = styled.div`
     font-weight: 800;
     font-size: 14px;
     letter-spacing: 0;
-    line-height: 40px;
     margin-bottom: 20px;
   }
 
@@ -119,7 +120,11 @@ const RightContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 60%;
+    height: 100%;
+  }
+
+  ${BREAK_POINTS.tablet} {
+    padding: 0 16px;
   }
 `;
 
@@ -157,6 +162,7 @@ const Text = styled.div`
     line-height: 25px;
     margin: 0;
     max-width: 600px;
+    padding-right: 133px;
   }
 
   ${BREAK_POINTS.mobile} {
@@ -168,6 +174,7 @@ const Text = styled.div`
       font-size: 14px;
       line-height: 20px;
       letter-spacing: 0;
+      padding-right: 0;
     }
   }
 `;
