@@ -13,7 +13,7 @@ describe("TEST for password function", () => {
     expect(pass).toBe("Password can not contain username or name.");
   });
 
-  it("Should return true", () => {
+  it("Should return true if 3 rules are met", () => {
     const pass = passwordValidation("terrelrj3!ones", "tjones");
 
     expect(pass).toBe(true);
