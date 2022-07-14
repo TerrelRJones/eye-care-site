@@ -1,8 +1,16 @@
 import { emailValidation } from "../emailValidator";
 
 describe("Testing email validation function", () => {
-  it("Should pass true if email is valid.", () => {
+  it("Should return true if email is valid.", () => {
     expect(emailValidation("TJones@gmail.com")).toBe(true);
+  });
+
+  it("Should fail if @ symbal is not present.", () => {
+    expect(emailValidation("TJonesgmail.com")).toBe(false);
+  });
+
+  it("Should fail if email does not end with .com, etc.", () => {
+    expect(emailValidation("TJonesgmail.com")).toBe(false);
   });
 
   it("Should fail for . in beggining of email.", () => {
@@ -26,10 +34,10 @@ describe("Testing email validation function", () => {
       emailValidation(
         "terreljon1terreljon1terreljon1terreljon1terreljon1terreljon12345@gmail.com"
       )
-    ).toBe("Email characters exceeded limit of 64.");
+    ).toBe("Email characters exceeded limit of 64 characters.");
   });
 
-  it("Should pass for characters being 63 long.", () => {
+  it("Should pass for characters being under 64 characters long.", () => {
     expect(
       emailValidation(
         "terreljon1terreljon1terreljon1terreljon1terreljon1terreljon1234@gmail.com"
