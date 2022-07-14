@@ -157,6 +157,7 @@ const Text = styled.div`
     line-height: 25px;
     margin: 0;
     max-width: 600px;
+    padding-right: 133px;
   }
 
   ${BREAK_POINTS.mobile} {
@@ -168,6 +169,7 @@ const Text = styled.div`
       font-size: 14px;
       line-height: 20px;
       letter-spacing: 0;
+      padding-right: 0;
     }
   }
 `;
