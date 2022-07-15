@@ -27,7 +27,7 @@ describe("TEST for password function", () => {
     expect(pass.isValid).toBe(true);
   });
 
-  it("Should return false if atleast 3 rules are not met.", () => {
+  it("Should return false if at least 3 rules are not met.", () => {
     const pass = passwordValidation("terrelrddsdsdsdes", "tjones");
 
     expect(pass.isValid).toBe(false);

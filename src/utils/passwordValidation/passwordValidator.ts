@@ -19,7 +19,7 @@ export const passwordValidation = (
   if (username.length === 1)
     return {
       isValid: false,
-      errors: ["Username invalid; must be atleast 2 characters."],
+      errors: ["Username invalid; must be at least 2 characters."],
     };
 
   if (password.toLowerCase().includes("password"))
