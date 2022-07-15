@@ -14,7 +14,9 @@ export const phoneNumberValidator = (
     return { isValid: false, error: "Please enter a valid phone number." };
 
   checkNumber.forEach((number) => {
-    if (Number(number)) {
+    let converted = parseInt(number);
+
+    if (!isNaN(converted)) {
       formattedNumber = formattedNumber += number;
     }
   });

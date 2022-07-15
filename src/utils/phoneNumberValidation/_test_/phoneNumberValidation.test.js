@@ -10,7 +10,7 @@ describe("TEST phone number validation function.", () => {
   it("Should return (253)-505-3322 formatted if valid", () => {
     const phoneNumberTest = phoneNumberValidator("(253)-505-3322");
 
-    expect(phoneNumberTest.phoneNumber).toBe("(253) 55-3322");
+    expect(phoneNumberTest.phoneNumber).toBe("(253) 505-3322");
   });
 
   it("Should return 253-555-3322 formatted if valid", () => {
