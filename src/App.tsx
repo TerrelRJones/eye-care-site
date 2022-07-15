@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 
 // components
@@ -8,7 +9,6 @@ import Footer from "components/Footer";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
-import { useEffect } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -22,8 +22,6 @@ const Container = styled.div`
 `;
 
 function App() {
-  useEffect(() => {}, []);
-
   return (
     <>
       <Container>
