@@ -6,19 +6,18 @@ import Card from "components/Card";
 import CardContainer from "components/CardContainer";
 import ContactUs from "components/ContactUs";
 import Footer from "components/Footer";
+import ArticleCardContainer from "components/ArticleCardContainer";
+import ArticleCard from "components/ArticleCard";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
-
 import {
-  Category,
-  getArticles,
-  printArticles,
-  sortArticlesBy,
-  SortBy,
-} from "utils/articleFunctions";
-import ArticleCard from "components/ArticleCard";
-import ArticleCardContainer from "components/ArticleCardContainer";
+  filterByJobTitle,
+  filterByNetwork,
+  JobTitle,
+  Network,
+  searchByName,
+} from "utils/doctorFunctions";
 
 const Container = styled.div`
   display: flex;
@@ -33,10 +32,9 @@ const Container = styled.div`
 
 function App() {
   useEffect(() => {
-    const articles = getArticles(Category.TECHNOLOGY);
-
-    printArticles(articles);
-    sortArticlesBy(SortBy.CONTENT, articles);
+    filterByNetwork(Network.ADVANTAGE);
+    filterByJobTitle(JobTitle.OPTOMETRIST);
+    searchByName("Va");
   }, []);
 
   return (
