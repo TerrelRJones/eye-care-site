@@ -9,7 +9,6 @@ import Footer from "components/Footer";
 // Cards
 import { benefitCards } from "const/CTACardConst";
 import { useEffect } from "react";
-import { passwordValidation } from "utils/passwordValidation/passwordValidator";
 
 const Container = styled.div`
   display: flex;
@@ -23,9 +22,7 @@ const Container = styled.div`
 `;
 
 function App() {
-  useEffect(() => {
-    console.log(passwordValidation("Jonestr125bl!", "jOnes"));
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
