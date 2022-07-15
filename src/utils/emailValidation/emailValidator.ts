@@ -1,10 +1,11 @@
+import { MAX_RECIPIENT_LENGTH } from "const/emailConst";
+
 interface EmailValidationResponse {
   isValid: boolean;
   error: string | null;
 }
 
 export const emailValidation = (email: string): EmailValidationResponse => {
-  const MAX_RECIPIENT_LENGTH = 64;
   const recipient = email.split("@")[0].split("");
   const lastCharOfRecipient = recipient.length - 1;
 
