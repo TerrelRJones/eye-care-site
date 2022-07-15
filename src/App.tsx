@@ -17,6 +17,8 @@ import {
   sortArticlesBy,
   SortBy,
 } from "utils/articleFunctions";
+import ArticleCard from "components/ArticleCard";
+import ArticleCardContainer from "components/ArticleCardContainer";
 
 const Container = styled.div`
   display: flex;
@@ -46,7 +48,28 @@ function App() {
             <Card key={cardDetails.title} {...cardDetails} />
           ))}
         </CardContainer>
-
+        <ArticleCardContainer>
+          <ArticleCard
+            articleTag="Eye Health and Wellness"
+            headline="Gaining on Glaucoma: Detection and Treatment"
+            article="Glaucoma affects millions of people and can cause vision loss. Yet ,there's good news – early detection…"
+          />
+          <ArticleCard
+            articleTag="Eye Health and Wellness"
+            headline="Gaining on Glaucoma: Detection and Treatment"
+            article="Glaucoma affects millions of people and can cause vision loss. Yet ,there's good news – early detection…"
+          />
+          <ArticleCard
+            articleTag="Eye Health and Wellness"
+            headline="Gaining on Glaucoma: Detection and Treatment"
+            article="Glaucoma affects millions of people and can cause vision loss. Yet ,there's good news – early detection…"
+          />
+          <ArticleCard
+            articleTag="Eye Health and Wellness"
+            headline="Gaining on Glaucoma: Detection and Treatment"
+            article="Glaucoma affects millions of people and can cause vision loss. Yet ,there's good news – early detection…"
+          />
+        </ArticleCardContainer>
         <Footer />
       </Container>
     </>

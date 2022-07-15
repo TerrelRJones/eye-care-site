@@ -4,5 +4,6 @@ export const Colors = {
   matteGray: "#9EA1A4",
   lime: "#9FCC3A",
   white: "#ffffff",
-  whiteOpacity: "rgba(255,255,255,0.9)"
+  whiteOpacity: "rgba(255,255,255,0.9)",
+  articleBlack: "#4A4A4A",
 };
