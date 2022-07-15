@@ -7,16 +7,16 @@ describe("TEST phone number validation function.", () => {
     expect(phoneNumberTest.isValid).toBe(true);
   });
 
-  it("Should return (253)-555-3322 formatted if valid", () => {
-    const phoneNumberTest = phoneNumberValidator("(253)-555-3322");
+  it.only("Should return (253)-505-3322 formatted if valid", () => {
+    const phoneNumberTest = phoneNumberValidator("(253)-505-3322");
 
-    expect(phoneNumberTest.phoneNumber).toBe("(253) 555-3322");
+    expect(phoneNumberTest.phoneNumber).toBe("(253) 505-3322");
   });
 
   it("Should return 253-555-3322 formatted if valid", () => {
-    const phoneNumberTest = phoneNumberValidator("253-555-3322");
+    const phoneNumberTest = phoneNumberValidator("253-555-3312");
 
-    expect(phoneNumberTest.phoneNumber).toBe("(253) 555-3322");
+    expect(phoneNumberTest.phoneNumber).toBe("(253) 555-3312");
   });
 
   it("Should return 'Please enter a valid phone number.' for (253) 98-5443", () => {

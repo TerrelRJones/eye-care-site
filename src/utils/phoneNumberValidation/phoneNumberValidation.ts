@@ -10,16 +10,19 @@ export const phoneNumberValidator = (
   const checkNumber = phoneNumber.split("");
   let formattedNumber = "";
 
-  checkNumber.forEach((number) => {
-    if (number === "0" || number === "1")
-      return { isValid: false, error: "Please enter a valid phone number." };
+  console.log(formattedNumber);
+  if (checkNumber[0] === "0" || checkNumber[0] === "1")
+    return { isValid: false, error: "Please enter a valid phone number." };
 
+  checkNumber.forEach((number) => {
     if (Number(number)) {
       formattedNumber = formattedNumber += number;
     }
   });
 
-  if (formattedNumber.length < 10 || formattedNumber.length > 10)
+  console.log(formattedNumber);
+
+  if (formattedNumber.length !== 10)
     return { isValid: false, error: "Please enter a valid phone number." };
 
   if (!formattedNumber[3].match(/[2-9]/))
@@ -30,6 +33,8 @@ export const phoneNumberValidator = (
   if (match) {
     formattedNumber = `(${match[1]}) ${match[2]}-${match[3]}`;
   }
+
+  // console.log(formattedNumber);
 
   return { isValid: true, phoneNumber: formattedNumber, error: null };
 };
