@@ -4,19 +4,21 @@ describe("TEST for password function", () => {
   it('Should return "Password can not be password."', () => {
     const pass = passwordValidation("password", "tjones");
 
-    expect(pass).toBe("Password can not be password.");
+    expect(pass.errors[0]).toBe("Password can not be password.");
   });
 
   it("Should return 'Password can not contain username or name.'", () => {
     const pass = passwordValidation("HeyJones3488!", "tjones");
 
-    expect(pass).toBe("Password can not contain username or name.");
+    expect(pass.errors[0]).toBe("Password can not contain username or name.");
   });
 
   it("Should return 'Username invalid; must be atleast 2 characters.' If user pass in 1 character.", () => {
     const pass = passwordValidation("HeyJones3488!", "t");
 
-    expect(pass).toBe("Username invalid; must be atleast 2 characters.");
+    expect(pass.errors[0]).toBe(
+      "Username invalid; must be atleast 2 characters."
+    );
   });
 
   it("Should return valid if 3 rules are met", () => {
@@ -25,7 +27,7 @@ describe("TEST for password function", () => {
     expect(pass.isValid).toBe(true);
   });
 
-  it("Should return false if atleast 3 rules are not met.", () => {
+  it("Should return false if at least 3 rules are not met.", () => {
     const pass = passwordValidation("terrelrddsdsdsdes", "tjones");
 
     expect(pass.isValid).toBe(false);
