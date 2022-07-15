@@ -10,7 +10,6 @@ export const phoneNumberValidator = (
   const checkNumber = phoneNumber.split("");
   let formattedNumber = "";
 
-  console.log(formattedNumber);
   if (checkNumber[0] === "0" || checkNumber[0] === "1")
     return { isValid: false, error: "Please enter a valid phone number." };
 
@@ -19,8 +18,6 @@ export const phoneNumberValidator = (
       formattedNumber = formattedNumber += number;
     }
   });
-
-  console.log(formattedNumber);
 
   if (formattedNumber.length !== 10)
     return { isValid: false, error: "Please enter a valid phone number." };
@@ -33,8 +30,6 @@ export const phoneNumberValidator = (
   if (match) {
     formattedNumber = `(${match[1]}) ${match[2]}-${match[3]}`;
   }
-
-  // console.log(formattedNumber);
 
   return { isValid: true, phoneNumber: formattedNumber, error: null };
 };
