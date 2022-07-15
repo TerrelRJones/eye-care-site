@@ -1,4 +1,16 @@
-const docs = [
+interface DoctorData {
+  id: number;
+  first_name: string;
+  last_name: string;
+  job_title: string;
+  gender: string;
+  license_number: string;
+  npi_number: string;
+  doctor_networks: string[] | null;
+  avatar: string | null;
+}
+
+const Docs: DoctorData[] = [
   {
     id: 1,
     first_name: "Salvatore",
@@ -223,4 +235,4 @@ const docs = [
   },
 ];
 
-export default docs;
+export default Docs;
