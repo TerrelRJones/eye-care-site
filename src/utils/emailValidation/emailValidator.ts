@@ -4,7 +4,7 @@ export const emailValidation = (email: string) => {
   const recipient = checkEmail.split("@")[0].split("");
   const lastCharOfRecipient = recipient.length - 1;
   // clean up tomorrow 7/15
-  const emailCheck = new RegExp(/[\w!@#$%^&*()-+/?.]+@[\w]+\.(com|edu|org)/);
+  const emailCheck = new RegExp(/[\w!@#$%^&*()-+/?.]+@[\w]+\.[a-z]{2,}/);
   const isValidEmail = emailCheck.test(checkEmail);
 
   if (recipient[0].includes(".")) return "Email can not start with a '.'";
