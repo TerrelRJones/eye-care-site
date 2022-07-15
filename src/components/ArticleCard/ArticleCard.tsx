@@ -1,3 +1,5 @@
+import { BREAK_POINTS } from "const/breakpoints";
+import { url } from "inspector";
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 
@@ -5,6 +7,7 @@ interface ArticleCardProps {
   headline: string;
   articleTag: string;
   article: string;
+  imageUrl: string;
 }
 
 const StyledArticleContainer = styled.div`
@@ -12,14 +15,23 @@ const StyledArticleContainer = styled.div`
   width: 100%;
   font-family: "Oswald";
   padding: 0;
+  margin: 0;
   margin-top: 40px;
+
+  ${BREAK_POINTS.mobile} {
+    max-width: 100%;
+  }
 `;
 
 const StyledImageContainer = styled.div`
-  background-color: blue;
   width: 100%;
-  /* change back to max-hieght */
-  height: 208px;
+  max-height: 208px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 const CategoryTag = styled.h3`
@@ -37,6 +49,8 @@ const Headline = styled.h2`
   padding: 0;
   letter-spacing: 0;
   line-height: 39px;
+  font-weight: 400;
+  width: 100%;
 `;
 
 const StyledArticleParagraph = styled.p`
@@ -54,13 +68,18 @@ export const ArticleCard = ({
   headline,
   article,
   articleTag,
+  imageUrl,
 }: ArticleCardProps) => {
   return (
     <StyledArticleContainer>
-      <StyledImageContainer>image</StyledImageContainer>
+      <StyledImageContainer>
+        <img src={imageUrl} alt="test" />
+      </StyledImageContainer>
       <CategoryTag>{articleTag}</CategoryTag>
       <Headline>{headline}</Headline>
-      <StyledArticleParagraph>{article}</StyledArticleParagraph>
+      <StyledArticleParagraph>
+        {article.length > 103 ? `${article.substring(0, 103)}...` : article}
+      </StyledArticleParagraph>
     </StyledArticleContainer>
   );
 };

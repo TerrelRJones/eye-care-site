@@ -21,7 +21,6 @@ export const getArticles = async (category: Category) => {
 
     return res.data;
   } catch (e: any) {
-    console.log(e.message);
     return e.message;
   }
 };
@@ -32,9 +31,9 @@ export const printArticles = async (articles: Promise<string>) => {
 
     if (data.length === 0) return [];
 
-    console.log(data);
+    return data;
   } catch (e: any) {
-    console.log(e.message);
+    return e.message;
   }
 };
 
@@ -45,5 +44,5 @@ export const sortArticlesBy = async (sortType: SortBy, arr: Promise<[]>) => {
     a[sortType] > b[sortType] ? 1 : a[sortType] < b[sortType] ? -1 : 0
   );
 
-  console.log(sorted);
+  return sorted;
 };

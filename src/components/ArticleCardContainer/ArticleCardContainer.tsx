@@ -14,9 +14,13 @@ const StyledArticleCardContainer = styled.section`
   /* background-color: green; */
   padding: 0;
 
-  ${BREAK_POINTS.mobile} {
+  ${BREAK_POINTS.tablet} {
     align-items: center;
     justify-content: center;
+  }
+
+  ${BREAK_POINTS.mobile} {
+    background-color: red;
   }
 `;
 
