@@ -7,10 +7,10 @@ export const passwordValidation = (password: string, username: string) => {
 
   const errors: Array<{}> = [];
 
-  if (username.length === 1)
-    return "Username invalid; must be atleast 2 characters.";
-
   if (checkPass === "") return "Please enter a password.";
+
+  if (checkUsername.length === 1)
+    return "Username invalid; must be atleast 2 characters.";
 
   if (checkPass.toLowerCase().includes("password"))
     return "Password can not be password.";
