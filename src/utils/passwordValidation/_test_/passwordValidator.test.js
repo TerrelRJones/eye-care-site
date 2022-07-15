@@ -19,15 +19,15 @@ describe("TEST for password function", () => {
     expect(pass).toBe("Username invalid; must be atleast 2 characters.");
   });
 
-  it("Should return true if 3 rules are met", () => {
+  it("Should return valid if 3 rules are met", () => {
     const pass = passwordValidation("terrelrj3!ones", "tjones");
 
-    expect(pass).toBe(true);
+    expect(pass.isValid).toBe(true);
   });
 
-  it("Should return 'Password must contain atleast 3 rules.'", () => {
+  it("Should return false if atleast 3 rules are not met.", () => {
     const pass = passwordValidation("terrelrddsdsdsdes", "tjones");
 
-    expect(pass).toBe("Password must contain atleast 3 rules.");
+    expect(pass.isValid).toBe(false);
   });
 });
