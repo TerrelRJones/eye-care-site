@@ -9,6 +9,10 @@ describe("Testing email validation function", () => {
     expect(emailValidation("TJonesgmail.com").isValid).toBe(false);
   });
 
+  it("Should fail if .com, .edu, etc is not present.", () => {
+    expect(emailValidation("TJones@gmail").isValid).toBe(false);
+  });
+
   it("Should fail if email does not end with .com, etc.", () => {
     expect(emailValidation("TJonesgmail.com").isValid).toBe(false);
   });
