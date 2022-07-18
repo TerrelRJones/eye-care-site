@@ -1,5 +1,4 @@
 import { BREAK_POINTS } from "const/breakpoints";
-import { url } from "inspector";
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 

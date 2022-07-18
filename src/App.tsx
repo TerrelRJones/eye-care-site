@@ -15,6 +15,7 @@ import {
   filterByJobTitle,
   filterByNetwork,
   JobTitle,
+  Name,
   Network,
   searchByName,
 } from "utils/doctorFunctions";
@@ -34,7 +35,7 @@ function App() {
   useEffect(() => {
     filterByNetwork(Network.ADVANTAGE);
     filterByJobTitle(JobTitle.OPTOMETRIST);
-    searchByName("Va");
+    searchByName("Va", Name.FIRST_NAME);
   }, []);
 
   return (
