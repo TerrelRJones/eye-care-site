@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 
 // components
@@ -9,13 +8,6 @@ import Footer from "components/Footer";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
-import {
-  filterByJobTitle,
-  filterByNetwork,
-  JobTitle,
-  Network,
-  searchByName,
-} from "utils/doctorFunctions";
 
 const Container = styled.div`
   display: flex;
@@ -29,12 +21,6 @@ const Container = styled.div`
 `;
 
 function App() {
-  useEffect(() => {
-    filterByNetwork(Network.ADVANTAGE);
-    filterByJobTitle(JobTitle.OPTOMETRIST);
-    searchByName("Va");
-  }, []);
-
   return (
     <>
       <Container>

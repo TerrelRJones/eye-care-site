@@ -17,7 +17,7 @@ describe("TEST for password function", () => {
     const pass = passwordValidation("HeyJones3488!", "t");
 
     expect(pass.errors[0]).toBe(
-      "Username invalid; must be atleast 2 characters."
+      "Username invalid; must be at least 2 characters."
     );
   });
 
