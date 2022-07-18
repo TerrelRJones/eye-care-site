@@ -20,7 +20,7 @@ const StyledArticleCardContainer = styled.section`
   }
 
   ${BREAK_POINTS.mobile} {
-    background-color: red;
+    /* background-color: red; */
   }
 `;
 

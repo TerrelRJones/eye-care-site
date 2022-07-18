@@ -17,9 +17,9 @@ const StyledArticleContainer = styled.div`
   margin: 0;
   margin-top: 40px;
 
-  ${BREAK_POINTS.mobile} {
+  /* ${BREAK_POINTS.mobile} {
     max-width: 100%;
-  }
+  } */
 `;
 
 const StyledImageContainer = styled.div`

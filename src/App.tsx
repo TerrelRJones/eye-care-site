@@ -60,6 +60,18 @@ function App() {
             article="Glaucoma affects millions of people and can cause vision loss. Yet ,there's good news early detection."
             imageUrl="https://boardroom.tv/wp-content/uploads/2022/03/GettyImages-1239013145-1280x720.jpg"
           />
+          <ArticleCard
+            articleTag="Eye Health and Wellness"
+            headline="Gaining on Glaucoma: Detection and Treatment"
+            article="Glaucoma affects millions of people and can cause vision loss. Yet ,there's good news early detection."
+            imageUrl="https://boardroom.tv/wp-content/uploads/2022/03/GettyImages-1239013145-1280x720.jpg"
+          />
+          <ArticleCard
+            articleTag="Eye Health and Wellness"
+            headline="Heed the Warning; What Eye Related Symptoms Can Tell Us"
+            article="Glaucoma affects millions of people and can cause vision loss. Yet ,there's good news early detection."
+            imageUrl="https://boardroom.tv/wp-content/uploads/2022/03/GettyImages-1239013145-1280x720.jpg"
+          />
         </ArticleCardContainer>
         <Footer />
       </Container>
