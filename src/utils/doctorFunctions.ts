@@ -10,6 +10,11 @@ export enum JobTitle {
   OPTOMETRIST = "Optometrist",
 }
 
+export enum Name {
+  FIRST_NAME = "first_name",
+  LAST_NAME = "last_name",
+}
+
 export const filterByNetwork = (network: Network): DoctorData[] => {
   const newDocs = docData.filter(({ doctor_networks }) =>
     doctor_networks?.includes(network)
@@ -24,9 +29,9 @@ export const filterByJobTitle = (title: JobTitle): DoctorData[] => {
   return newDocs;
 };
 
-export const searchByName = (name: string): DoctorData[] => {
-  const newDocs = docData.filter(({ first_name }) =>
-    first_name.toLowerCase().includes(name.toLocaleLowerCase())
+export const searchByName = (name: string, searcBy: Name): DoctorData[] => {
+  const newDocs = docData.filter((search) =>
+    search[searcBy].toLowerCase().includes(name.toLocaleLowerCase())
   );
 
   if (newDocs.length === 0) {
