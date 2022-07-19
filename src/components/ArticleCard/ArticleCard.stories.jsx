@@ -9,8 +9,11 @@ const Template = (args) => <ArticleCard {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  articleTag: "Eye Health and Wellness",
-  headline: "Gaining on Glaucoma: Detection and Treatment",
+  articleTag: "19 July, 2022",
+  headline: "LeBron James put on a show in his Drew League appearance",
   article:
-    "Glaucoma affects millions of people and can cause vision loss. Yet ,there's good news – early detection…",
+    "The Drew League, a pro-am summer basketball league based in Los Angeles, has had its share of NBA players show up to dazzle fans and opponents alike.",
+  imageUrl:
+    "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2021/1/lbj_utahjazz.jpg",
+  url: "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2021/1/lbj_utahjazz.jpg",
 };

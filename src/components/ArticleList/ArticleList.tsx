@@ -14,10 +14,6 @@ import {
 import { Colors } from "styles/colors";
 import { articleListLinkData } from "const/articleLinkData";
 
-// interface ArticleLitsProps {
-//   children: React.ReactNode;
-// }
-
 const StyledArticleListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
