@@ -7,6 +7,8 @@ interface ArticleCardProps {
   articleTag: string;
   article: string;
   imageUrl: string;
+  url?: string;
+  key: string | number;
 }
 
 const StyledArticleContainer = styled.div`
@@ -17,19 +19,35 @@ const StyledArticleContainer = styled.div`
   margin: 0;
   margin-top: 40px;
 
-  /* ${BREAK_POINTS.mobile} {
+  ${BREAK_POINTS.mobile} {
+    margin-top: 0;
+  }
+
+  ${BREAK_POINTS.xsMobile} {
     max-width: 100%;
-  } */
+  }
 `;
 
 const StyledImageContainer = styled.div`
   width: 100%;
-  max-height: 208px;
+  height: 208px;
+  background-color: ${Colors.articleBlack};
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    overflow: hidden;
+  }
+
+  ${BREAK_POINTS.mobile} {
+    height: 186px;
+  }
+`;
+
+const StyledInfoContainer = styled.div`
+  ${BREAK_POINTS.xsMobile} {
+    padding: 0 18px;
   }
 `;
 
@@ -39,17 +57,34 @@ const CategoryTag = styled.h3`
   color: ${Colors.mountainBlue};
   margin: 0;
   padding-top: 21px;
+
+  ${BREAK_POINTS.xsMobile} {
+    padding-top: 17px;
+  }
 `;
 
-const Headline = styled.h2`
+const Headline = styled.a`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
   font-size: 26px;
   color: ${Colors.icyBlue};
+  text-decoration: none;
   margin: 0;
   padding: 0;
   letter-spacing: 0;
   line-height: 39px;
   font-weight: 400;
   width: 100%;
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;
 
 const StyledArticleParagraph = styled.p`
@@ -68,17 +103,25 @@ export const ArticleCard = ({
   article,
   articleTag,
   imageUrl,
+  url,
+  key,
 }: ArticleCardProps) => {
   return (
-    <StyledArticleContainer>
+    <StyledArticleContainer key={key}>
       <StyledImageContainer>
-        <img src={imageUrl} alt="test" />
+        <a href={url} target="_blank" rel="noreferrer">
+          <img src={imageUrl} alt="test" />
+        </a>
       </StyledImageContainer>
-      <CategoryTag>{articleTag}</CategoryTag>
-      <Headline>{headline}</Headline>
-      <StyledArticleParagraph>
-        {article.length > 103 ? `${article.substring(0, 103)}...` : article}
-      </StyledArticleParagraph>
+      <StyledInfoContainer>
+        <CategoryTag>{articleTag}</CategoryTag>
+
+        <Headline href={url}>{headline}</Headline>
+
+        <StyledArticleParagraph>
+          {article.length > 103 ? `${article.substring(0, 103)}...` : article}
+        </StyledArticleParagraph>
+      </StyledInfoContainer>
     </StyledArticleContainer>
   );
 };

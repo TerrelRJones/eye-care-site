@@ -9,6 +9,7 @@ export enum SortBy {
   ID = "id",
   TITLE = "title",
   URL = "url",
+  TIME = "time",
 }
 
 export const getArticles = async (category: Category) => {
@@ -37,7 +38,7 @@ export const printArticles = async (articles: Promise<string>) => {
   }
 };
 
-export const sortArticlesBy = async (sortType: SortBy, arr: Promise<[]>) => {
+export const sortArticlesBy = async (sortType: SortBy, arr: []) => {
   const res = await arr;
 
   const sorted = res.sort((a, b) =>

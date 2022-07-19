@@ -11,16 +11,15 @@ const StyledArticleCardContainer = styled.section`
   gap: 30px;
   max-width: 770px;
   width: 100%;
-  /* background-color: green; */
-  padding: 0;
+  padding-right: 114px;
+
+  @media (max-width: 1075px) {
+    padding-right: 0;
+  }
 
   ${BREAK_POINTS.tablet} {
     align-items: center;
     justify-content: center;
-  }
-
-  ${BREAK_POINTS.mobile} {
-    /* background-color: red; */
   }
 `;
 
