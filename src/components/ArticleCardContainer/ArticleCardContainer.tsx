@@ -13,7 +13,7 @@ const StyledArticleCardContainer = styled.section`
   width: 100%;
   padding-right: 114px;
 
-  @media (max-width: 1075px) {
+  ${BREAK_POINTS.articleListNav} {
     padding-right: 0;
   }
 

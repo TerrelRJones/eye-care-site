@@ -27,7 +27,7 @@ const StyledArticleListContainer = styled.div`
   padding-left: 60px;
   margin-bottom: 20px;
 
-  @media (max-width: 1075px) {
+  ${BREAK_POINTS.articleListNav} {
     justify-content: center;
     align-items: center;
     padding-left: 0;
@@ -83,7 +83,7 @@ const LinksContainer = styled.div`
 `;
 
 const LinksInfoContainer = styled.div`
-  @media (max-width: 1075px) {
+  ${BREAK_POINTS.articleListNav} {
     ul {
       display: flex;
       text-align: center;
