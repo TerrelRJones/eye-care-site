@@ -143,7 +143,9 @@ export const ArticleList = () => {
       <StyledArticleListContainer>
         <LinksContainer>
           <StyledMobileMenuContainer>
-            <MobileMenuText>Viewing Eye Health and Wellness</MobileMenuText>
+            <MobileMenuText onClick={() => console.log("Open Links")}>
+              Viewing Eye Health and Wellness
+            </MobileMenuText>
             <TbChevronRight size={30} color={`${Colors.white}`} />
           </StyledMobileMenuContainer>
           <LinksInfoContainer>
@@ -162,14 +164,15 @@ export const ArticleList = () => {
         </LinksContainer>
         <ArticleCardContainer>
           {data.map(({ id, date, title, content, imageUrl, url }) => (
-            <ArticleCard
-              key={id}
-              articleTag={date}
-              headline={title}
-              article={content}
-              imageUrl={imageUrl}
-              url={url}
-            />
+            <div key={id}>
+              <ArticleCard
+                articleTag={date}
+                headline={title}
+                article={content}
+                imageUrl={imageUrl}
+                url={url}
+              />
+            </div>
           ))}
         </ArticleCardContainer>
       </StyledArticleListContainer>
