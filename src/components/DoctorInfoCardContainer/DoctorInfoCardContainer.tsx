@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import DoctorData from "data/docData";
@@ -12,7 +13,6 @@ const StyledDoctorInfoCardContainer = styled.div`
   max-width: 770px;
   width: 100%;
   margin: 0;
-  /* padding: 0 16px; */
 
   ${BREAK_POINTS.tablet} {
     justify-content: center;
@@ -23,9 +23,22 @@ const StyledDoctorInfoCardContainer = styled.div`
 `;
 
 export const DoctorInfoCardContainer: React.FC = () => {
+  const [data, setData] = useState(DoctorData);
+
+  const sortDocsByLastName = () => {
+    const docs = data.sort((a, b) =>
+      a.last_name > b.last_name ? 1 : a.last_name < b.last_name ? -1 : 0
+    );
+
+    return docs;
+  };
+
+  useEffect(() => {
+    setData(DoctorData);
+  }, [data]);
   return (
     <StyledDoctorInfoCardContainer>
-      {DoctorData.map((data) => (
+      {sortDocsByLastName().map((data: any) => (
         <DoctorInfoCard key={data.id} {...data} />
       ))}
     </StyledDoctorInfoCardContainer>

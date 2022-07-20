@@ -14,9 +14,12 @@ interface DoctorInfoCardProps {
   npi_number: string;
   doctor_networks: string[] | null;
   avatar: string | null;
+  key: string | number;
 }
 
-const StyledDoctorInfoCardContainer = styled.div`
+const StyledDoctorInfoCardContainer = styled.div<
+  Pick<DoctorInfoCardProps, "doctor_networks">
+>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +40,9 @@ const StyledDoctorInfoCardContainer = styled.div`
     margin-bottom: 20px;
 
     .docInfoContainer {
-      margin-bottom: 53px;
+      margin-bottom: ${({ doctor_networks }) =>
+        !doctor_networks ? "53px" : "14px"};
+      margin-top: ${({ doctor_networks }) => !doctor_networks && "15px"};
     }
   }
 `;
@@ -71,6 +76,12 @@ const DoctorName = styled.h2<Pick<DoctorInfoCardProps, "gender">>`
   text-align: center;
   color: ${({ gender }) =>
     gender === "Female" ? Colors.mountainBlue : Colors.icyBlue};
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;
 
 const Occupation = styled.h3`
@@ -123,7 +134,7 @@ const Networks = styled.div<Pick<DoctorInfoCardProps, "doctor_networks">>`
   width: 100%;
   margin: 0 auto;
   ${({ doctor_networks }) =>
-    !doctor_networks ? "min-height: 80px" : "max-height: 80px"}; // <---- check
+    !doctor_networks ? "min-height: 80px" : "max-height: 80px"};
   height: 100%;
   margin-top: 14px;
   background-color: ${Colors.netWorkWhite};
@@ -149,12 +160,12 @@ const Networks = styled.div<Pick<DoctorInfoCardProps, "doctor_networks">>`
   }
 
   ${BREAK_POINTS.mobile} {
-    display: none;
+    display: ${({ doctor_networks }) => !doctor_networks && "none"};
+    margin-top: 0;
   }
 `;
 
 export const DoctorInfoCard = ({
-  id,
   first_name,
   last_name,
   job_title,
@@ -163,9 +174,10 @@ export const DoctorInfoCard = ({
   npi_number,
   doctor_networks,
   avatar,
+  key,
 }: DoctorInfoCardProps) => {
   return (
-    <StyledDoctorInfoCardContainer key={id}>
+    <StyledDoctorInfoCardContainer key={key} doctor_networks={doctor_networks}>
       <Avatar>
         <img src={avatar ? avatar : avatarIcon} alt="VSP Avatar Icon" />
       </Avatar>
