@@ -67,6 +67,10 @@ const LinksContainer = styled.div`
     }
   }
 
+  ${BREAK_POINTS.articleListNav} {
+    padding-left: 0;
+  }
+
   ${BREAK_POINTS.tablet} {
     display: flex;
     justify-content: center;
