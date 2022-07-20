@@ -8,7 +8,6 @@ interface ArticleCardProps {
   article: string;
   imageUrl: string;
   url?: string;
-  key: string | number;
 }
 
 const StyledArticleContainer = styled.div`
@@ -104,10 +103,9 @@ export const ArticleCard = ({
   articleTag,
   imageUrl,
   url,
-  key,
 }: ArticleCardProps) => {
   return (
-    <StyledArticleContainer key={key}>
+    <StyledArticleContainer>
       <StyledImageContainer>
         <a href={url} target="_blank" rel="noreferrer">
           <img src={imageUrl} alt="test" />
