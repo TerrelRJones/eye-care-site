@@ -7,8 +7,9 @@ import ArticleCardContainer from "components/ArticleCardContainer";
 import { BREAK_POINTS } from "const/breakpoints";
 import {
   Category,
+  convertDate,
   getArticles,
-  sortArticlesBy,
+  sortArticlesByDateTime,
   SortBy,
 } from "utils/articleFunctions";
 import { Colors } from "styles/colors";
@@ -129,10 +130,14 @@ export const ArticleList = () => {
 
   const articles = async () => {
     const articles = await getArticles(Category.TECHNOLOGY);
-    const sortedArticlesByDate = await sortArticlesBy(SortBy.DATE, articles);
+    const sortedArticlesByDateTime = await sortArticlesByDateTime(
+      SortBy.DATE,
+      SortBy.TIME,
+      articles
+    );
 
-    console.log(sortedArticlesByDate);
-    setData(sortedArticlesByDate);
+    console.log(sortedArticlesByDateTime);
+    setData(sortedArticlesByDateTime);
   };
 
   useEffect(() => {
@@ -163,10 +168,10 @@ export const ArticleList = () => {
           </LinksInfoContainer>
         </LinksContainer>
         <ArticleCardContainer>
-          {data.map(({ id, date, title, content, imageUrl, url }) => (
+          {data.map(({ id, date, time, title, content, imageUrl, url }) => (
             <div key={id}>
               <ArticleCard
-                articleTag={date}
+                articleTag={convertDate(date, time).toDateString()}
                 headline={title}
                 article={content}
                 imageUrl={imageUrl}
