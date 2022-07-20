@@ -2,7 +2,7 @@ const sizes = {
   xsMobile: "450px",
   mobile: "576px",
   tablet: "992px",
-  articleListNav: "1100px",
+  articleListNav: "1136px",
 };
 
 export const BREAK_POINTS = {
