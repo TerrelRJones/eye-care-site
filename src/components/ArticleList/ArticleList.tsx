@@ -20,7 +20,6 @@ const StyledArticleListContainer = styled.div`
   max-width: 1200px;
   width: 100%;
   justify-content: space-between;
-  padding-left: 60px;
   margin-bottom: 20px;
 
   ${BREAK_POINTS.articleListNav} {
@@ -43,6 +42,7 @@ const LinksContainer = styled.div`
   font-size: 14px;
   letter-spacing: 0;
   line-height: 40px;
+  padding-left: 60px;
 
   h4 {
     margin-bottom: 0;
