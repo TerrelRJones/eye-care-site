@@ -1,7 +1,20 @@
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 
-type Props = {};
+import avatarIcon from "assets/icons/Image_Icon.svg";
+import { BREAK_POINTS } from "const/breakpoints";
+
+interface DoctorInfoCardProps {
+  id: number;
+  first_name: string;
+  last_name: string;
+  job_title: string;
+  gender: string;
+  license_number: string;
+  npi_number: string;
+  doctor_networks: string[] | null;
+  avatar: string | null;
+}
 
 const StyledDoctorInfoCardContainer = styled.div`
   display: flex;
@@ -11,10 +24,21 @@ const StyledDoctorInfoCardContainer = styled.div`
   width: 100%;
   max-height: 352px;
   padding-top: 23px;
+  background-color: ${Colors.white};
+  margin-bottom: 30px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
 
   .docInfoContainer {
     margin-top: 15px;
+  }
+
+  ${BREAK_POINTS.mobile} {
+    max-width: 288px;
+    margin-bottom: 20px;
+
+    .docInfoContainer {
+      margin-bottom: 53px;
+    }
   }
 `;
 
@@ -26,18 +50,27 @@ const Avatar = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 100%;
+  }
 `;
 
-const DoctorName = styled.h2`
+const DoctorName = styled.h2<Pick<DoctorInfoCardProps, "gender">>`
   margin: 0;
   padding-top: 17px;
   font-family: "Oswald";
-  font-weight: 300px;
   font-size: 22px;
+  font-weight: 500;
   letter-spacing: 0;
   line-height: 24.2px;
   text-align: center;
-  color: ${Colors.mountainBlue};
+  color: ${({ gender }) =>
+    gender === "Female" ? Colors.mountainBlue : Colors.icyBlue};
 `;
 
 const Occupation = styled.h3`
@@ -49,6 +82,7 @@ const Occupation = styled.h3`
   letter-spacing: 0;
   line-height: 25px;
   text-align: center;
+  color: ${Colors.mountainBlue};
 `;
 
 const DocInfo = styled.div`
@@ -61,36 +95,110 @@ const DocInfo = styled.div`
 
   h4 {
     font-weight: 600;
-    margin-right: 5px;
     margin: 0;
+    margin-right: 5px;
   }
 
   p {
     font-weight: 300;
     margin: 0;
   }
+
+  ${BREAK_POINTS.mobile} {
+    h4 {
+      font-weight: 300;
+    }
+
+    .genderTag {
+      display: none;
+    }
+  }
 `;
 
-export const DoctorInfoCard = (props: Props) => {
+const Networks = styled.div<Pick<DoctorInfoCardProps, "doctor_networks">>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 370px;
+  width: 100%;
+  margin: 0 auto;
+  ${({ doctor_networks }) =>
+    !doctor_networks ? "min-height: 80px" : "max-height: 80px"}; // <---- check
+  height: 100%;
+  margin-top: 14px;
+  background-color: ${Colors.netWorkWhite};
+  ${({ doctor_networks }) =>
+    !doctor_networks ? "padding: 0" : "padding: 18px 0px"};
+  font-family: "Open Sans";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 22px;
+  text-align: center;
+  color: ${Colors.mountainBlue};
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  ${BREAK_POINTS.mobile} {
+    display: none;
+  }
+`;
+
+export const DoctorInfoCard = ({
+  id,
+  first_name,
+  last_name,
+  job_title,
+  gender,
+  license_number,
+  npi_number,
+  doctor_networks,
+  avatar,
+}: DoctorInfoCardProps) => {
   return (
-    <StyledDoctorInfoCardContainer>
-      <Avatar>PHOTO</Avatar>
-      <DoctorName>Dr. Scott M Amoruso</DoctorName>
-      <Occupation>Optometrist</Occupation>
+    <StyledDoctorInfoCardContainer key={id}>
+      <Avatar>
+        <img src={avatar ? avatar : avatarIcon} alt="VSP Avatar Icon" />
+      </Avatar>
+      <DoctorName
+        gender={gender}
+      >{`Dr. ${first_name} ${last_name}`}</DoctorName>
+      <Occupation>{job_title}</Occupation>
       <div className="docInfoContainer">
         <DocInfo>
-          <h4>Gender:</h4>
-          <p>Male</p>
+          <h4 className="genderTag">Gender:</h4>
+          <p>{gender}</p>
         </DocInfo>
         <DocInfo>
           <h4>License Number:</h4>
-          <p>10927</p>
+          <p>{license_number}</p>
         </DocInfo>
         <DocInfo>
           <h4>NPI Number:</h4>
-          <p>1477549608</p>
+          <p>{npi_number}</p>
         </DocInfo>
       </div>
+      <Networks doctor_networks={doctor_networks}>
+        {doctor_networks && (
+          <>
+            <h4>NPI Number:</h4>
+            <div style={{ display: "flex" }}>
+              {doctor_networks.map((network) => (
+                <p>{network}</p>
+              ))}
+            </div>
+          </>
+        )}
+      </Networks>
     </StyledDoctorInfoCardContainer>
   );
 };

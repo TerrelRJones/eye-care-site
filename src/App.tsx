@@ -6,6 +6,7 @@ import CardContainer from "components/CardContainer";
 import ContactUs from "components/ContactUs";
 import Footer from "components/Footer";
 import ArticleList from "components/ArticleList";
+import DoctorInfoCardContainer from "components/DoctorInfoCardContainer";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
@@ -31,6 +32,7 @@ function App() {
           ))}
         </CardContainer>
         <ArticleList />
+        <DoctorInfoCardContainer />
         <Footer />
       </Container>
     </>
