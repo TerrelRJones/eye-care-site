@@ -1,3 +1,5 @@
+import { Article } from "components/ArticleList/ArticleList";
+
 export enum Category {
   TECHNOLOGY = "technology",
 }
@@ -39,8 +41,8 @@ export const printArticles = async (articles: Promise<string>) => {
 };
 
 export function convertDate(dateValue: any, timeValue: any) {
-  let date = new Date(dateValue.replace(/,.*$/, ""));
-  let [time, period] = timeValue.split(" ");
+  const date = new Date(dateValue.replace(/,.*$/, ""));
+  const [time, period] = timeValue.split(" ");
   let [hour, min] = time.split(":");
   hour = period === "pm" ? parseInt(hour) + 12 : parseInt(hour);
   date.setHours(hour, parseInt(min));
@@ -56,18 +58,14 @@ export const sortArticlesBy = async (sortType: SortBy, arr: []) => {
   return sorted;
 };
 
-export const sortArticlesByDateTime = async (
-  date: SortBy,
-  time: SortBy,
-  arr: []
-) => {
-  const res = await arr;
+export const sortArticlesByDateTime = (articles: Article[]) => {
+  const res = articles;
   const sorted = res.sort((a, b) =>
-    convertDate(a[date], a[time]).toDateString() <
-    convertDate(b[date], b[time]).toDateString()
+    convertDate(a[SortBy.DATE], a[SortBy.TIME]).toDateString() <
+    convertDate(b[SortBy.DATE], b[SortBy.TIME]).toDateString()
       ? 1
-      : convertDate(a[date], a[time]).toDateString() >
-        convertDate(b[date], b[time]).toDateString()
+      : convertDate(a[SortBy.DATE], a[SortBy.TIME]).toDateString() >
+        convertDate(b[SortBy.DATE], b[SortBy.TIME]).toDateString()
       ? -1
       : 0
   );
