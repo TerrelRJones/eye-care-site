@@ -95,6 +95,12 @@ const StyledArticleParagraph = styled.p`
   margin: 0;
   padding: 0;
   padding-top: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 export const ArticleCard = ({
@@ -116,9 +122,7 @@ export const ArticleCard = ({
 
         <Headline href={url}>{headline}</Headline>
 
-        <StyledArticleParagraph>
-          {article.length > 103 ? `${article.substring(0, 103)}...` : article}
-        </StyledArticleParagraph>
+        <StyledArticleParagraph>{article}</StyledArticleParagraph>
       </StyledInfoContainer>
     </StyledArticleContainer>
   );
