@@ -11,6 +11,7 @@ export type ButtonProps = {
   icon?: React.ReactNode;
   disabled?: boolean;
   onClick: () => void;
+  className?: string;
 };
 
 const ButtonStyled = styled.button<
@@ -73,9 +74,15 @@ export const Button = ({
   icon,
   disabled,
   onClick,
+  className,
 }: ButtonProps) => {
   return (
-    <ButtonStyled buttonType={buttonType} disabled={disabled} onClick={onClick}>
+    <ButtonStyled
+      className={className}
+      buttonType={buttonType}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {label}
       {icon && <div className="icon">{icon}</div>}
     </ButtonStyled>
