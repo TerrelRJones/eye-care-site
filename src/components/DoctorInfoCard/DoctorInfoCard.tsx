@@ -3,8 +3,10 @@ import { Colors } from "styles/colors";
 
 import avatarIcon from "assets/icons/Image_Icon.svg";
 import { BREAK_POINTS } from "const/breakpoints";
+// import {DoctorData} from 'data/docData'
 
 interface DoctorInfoCardProps {
+  // doctor: DoctorData;
   id: number;
   first_name: string;
   last_name: string;
@@ -165,6 +167,10 @@ const Networks = styled.div<Pick<DoctorInfoCardProps, "doctor_networks">>`
   }
 `;
 
+export const Flex = styled.div`
+  display: flex;
+`;
+
 export const DoctorInfoCard = ({
   first_name,
   last_name,
@@ -176,6 +182,16 @@ export const DoctorInfoCard = ({
   avatar,
   key,
 }: DoctorInfoCardProps) => {
+  // const {
+  //   first_name,
+  //   last_name,
+  //   job_title,
+  //   gender,
+  //   license_number,
+  //   npi_number,
+  //   doctor_networks,
+  //   avatar
+  // } = doctor;
   return (
     <StyledDoctorInfoCardContainer key={key} doctor_networks={doctor_networks}>
       <Avatar>
@@ -203,11 +219,11 @@ export const DoctorInfoCard = ({
         {doctor_networks && (
           <>
             <h4>NPI Number:</h4>
-            <div style={{ display: "flex" }}>
+            <Flex>
               {doctor_networks.map((network) => (
                 <p>{network}</p>
               ))}
-            </div>
+            </Flex>
           </>
         )}
       </Networks>
