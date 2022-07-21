@@ -29,9 +29,9 @@ export const filterByJobTitle = (title: JobTitle): DoctorData[] => {
   return newDocs;
 };
 
-export const searchByName = (name: string, searcBy: Name): DoctorData[] => {
+export const searchByName = (name: string, searchBy: Name): DoctorData[] => {
   const newDocs = docData.filter((search) =>
-    search[searcBy].toLowerCase().includes(name.toLocaleLowerCase())
+    search[searchBy].toLowerCase().includes(name.toLocaleLowerCase())
   );
 
   if (newDocs.length === 0) {
