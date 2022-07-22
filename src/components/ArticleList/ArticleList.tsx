@@ -147,7 +147,6 @@ export const ArticleList = () => {
     const articles = await getArticles(Category.TECHNOLOGY);
     const sortedArticlesByDateTime = sortArticlesByDateTime(articles);
 
-    console.log(sortedArticlesByDateTime);
     setData(sortedArticlesByDateTime);
   };
 
