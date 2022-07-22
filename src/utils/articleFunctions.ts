@@ -1,3 +1,5 @@
+import { Article } from "components/ArticleList/ArticleList";
+
 export enum Category {
   TECHNOLOGY = "technology",
 }
@@ -9,6 +11,7 @@ export enum SortBy {
   ID = "id",
   TITLE = "title",
   URL = "url",
+  TIME = "time",
 }
 
 export const getArticles = async (category: Category) => {
@@ -21,7 +24,6 @@ export const getArticles = async (category: Category) => {
 
     return res.data;
   } catch (e: any) {
-    console.log(e.message);
     return e.message;
   }
 };
@@ -32,18 +34,39 @@ export const printArticles = async (articles: Promise<string>) => {
 
     if (data.length === 0) return [];
 
-    console.log(data);
+    return data;
   } catch (e: any) {
-    console.log(e.message);
+    return e.message;
   }
 };
 
-export const sortArticlesBy = async (sortType: SortBy, arr: Promise<[]>) => {
+export function convertDate(dateValue: any, timeValue: any) {
+  const date = new Date(dateValue.replace(/,.*$/, ""));
+  const [time, period] = timeValue.split(" ");
+  let [hour, min] = time.split(":");
+  hour = period === "pm" ? parseInt(hour) + 12 : parseInt(hour);
+  date.setHours(hour, parseInt(min));
+  return date;
+}
+
+export const sortArticlesBy = async (sortType: SortBy, arr: []) => {
   const res = await arr;
 
   const sorted = res.sort((a, b) =>
     a[sortType] > b[sortType] ? 1 : a[sortType] < b[sortType] ? -1 : 0
   );
+  return sorted;
+};
 
-  console.log(sorted);
+export const sortArticlesByDateTime = (articles: Article[]) => {
+  const sorted = articles.sort((a, b) =>
+    convertDate(a[SortBy.DATE], a[SortBy.TIME]).toDateString() >
+    convertDate(b[SortBy.DATE], b[SortBy.TIME]).toDateString()
+      ? 1
+      : convertDate(a[SortBy.DATE], a[SortBy.TIME]).toDateString() <
+        convertDate(b[SortBy.DATE], b[SortBy.TIME]).toDateString()
+      ? -1
+      : 0
+  );
+  return sorted;
 };

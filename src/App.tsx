@@ -5,6 +5,7 @@ import Card from "components/Card";
 import CardContainer from "components/CardContainer";
 import ContactUs from "components/ContactUs";
 import Footer from "components/Footer";
+import ArticleList from "components/ArticleList";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
@@ -15,7 +16,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-
   flex-wrap: wrap;
   margin: 0 auto;
 `;
@@ -30,7 +30,7 @@ function App() {
             <Card key={cardDetails.title} {...cardDetails} />
           ))}
         </CardContainer>
-
+        <ArticleList />
         <Footer />
       </Container>
     </>
