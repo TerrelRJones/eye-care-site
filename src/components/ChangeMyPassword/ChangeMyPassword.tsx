@@ -146,7 +146,7 @@ const ErrorMessages = styled.div`
   font-weight: 600;
   letter-spacing: 1px;
   padding-left: 27px;
-  color: red;
+  color: ${Colors.errorRed};
 
   p {
     margin: 0;
@@ -228,7 +228,9 @@ export const ChangeMyPassword = (props: Props) => {
         </PasswordRequirementsContainer>
       </StyledMainContent>
       <ErrorMessages>
-        {isMatchingPasswords || <p>Passwords do not match. Try again.</p>}
+        {isMatchingPasswords || (
+          <p>Passwords do not match. Please try again.</p>
+        )}
       </ErrorMessages>
     </StyledChangeMyPasswordContainer>
   );
