@@ -58,16 +58,19 @@ export const ChangeMyPassword = () => {
       <StyledMainContent>
         <PasswordContainer>
           <StyledPasswordInput
+            required
             type="password"
             placeholder="Current Password"
             onChange={(e) => setCurrentPassword(e.target.value)}
           />
           <StyledPasswordInput
+            required
             type="password"
             placeholder="New Password"
             onChange={(e) => setNewPassword(e.target.value)}
           />
           <StyledPasswordInput
+            required
             type="password"
             placeholder="Confirm New Password"
             onChange={(e) => setConfirmNewPassword(e.target.value)}
