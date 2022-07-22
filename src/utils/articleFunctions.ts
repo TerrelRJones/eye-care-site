@@ -59,8 +59,7 @@ export const sortArticlesBy = async (sortType: SortBy, arr: []) => {
 };
 
 export const sortArticlesByDateTime = (articles: Article[]) => {
-  const res = articles;
-  const sorted = res.sort((a, b) =>
+  const sorted = articles.sort((a, b) =>
     convertDate(a[SortBy.DATE], a[SortBy.TIME]).toDateString() <
     convertDate(b[SortBy.DATE], b[SortBy.TIME]).toDateString()
       ? 1
