@@ -1,4 +1,4 @@
-export interface DoctorData {
+export interface Doctor {
   id: number;
   first_name: string;
   last_name: string;
@@ -10,7 +10,7 @@ export interface DoctorData {
   avatar: string | null;
 }
 
-const Docs: DoctorData[] = [
+const Docs: Doctor[] = [
   {
     id: 1,
     first_name: "Salvatore",

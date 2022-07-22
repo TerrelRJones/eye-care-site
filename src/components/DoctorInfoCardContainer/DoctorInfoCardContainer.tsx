@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import styled from "styled-components";
 
-import DoctorData from "data/docData";
+import DoctorData, { Doctor } from "data/docData";
 
 import { DoctorInfoCard } from "components/DoctorInfoCard/DoctorInfoCard";
 import { BREAK_POINTS } from "const/breakpoints";
@@ -33,9 +33,8 @@ export const DoctorInfoCardContainer: React.FC = () => {
 
   return (
     <StyledDoctorInfoCardContainer>
-      {sortedDoctors.map((data: any) => (
-        <DoctorInfoCard key={data.id} {...data} />
-        // <DoctorInfoCard key={data.id} doctor={data} />
+      {sortedDoctors.map((data: Doctor) => (
+        <DoctorInfoCard key={data.id} doctor={data} />
       ))}
     </StyledDoctorInfoCardContainer>
   );

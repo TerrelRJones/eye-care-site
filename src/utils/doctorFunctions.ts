@@ -1,4 +1,4 @@
-import docData, { DoctorData } from "../../src/data/docData";
+import docData, { Doctor } from "../../src/data/docData";
 
 export enum Network {
   ADVANTAGE = "Advantage",
@@ -15,7 +15,7 @@ export enum Name {
   LAST_NAME = "last_name",
 }
 
-export const filterByNetwork = (network: Network): DoctorData[] => {
+export const filterByNetwork = (network: Network): Doctor[] => {
   const newDocs = docData.filter(({ doctor_networks }) =>
     doctor_networks?.includes(network)
   );
@@ -23,13 +23,13 @@ export const filterByNetwork = (network: Network): DoctorData[] => {
   return newDocs;
 };
 
-export const filterByJobTitle = (title: JobTitle): DoctorData[] => {
+export const filterByJobTitle = (title: JobTitle): Doctor[] => {
   const newDocs = docData.filter(({ job_title }) => job_title === title);
   console.log(newDocs);
   return newDocs;
 };
 
-export const searchByName = (name: string, searchBy: Name): DoctorData[] => {
+export const searchByName = (name: string, searchBy: Name): Doctor[] => {
   const newDocs = docData.filter((search) =>
     search[searchBy].toLowerCase().includes(name.toLocaleLowerCase())
   );
