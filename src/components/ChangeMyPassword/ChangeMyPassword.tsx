@@ -1,7 +1,10 @@
 import Button from "components/Button";
 import { BREAK_POINTS } from "const/breakpoints";
+import { useState } from "react";
 import styled from "styled-components";
 import { Colors } from "styles/colors";
+
+import { passwordValidation } from "utils/passwordValidation/passwordValidator";
 
 type Props = {};
 
@@ -64,7 +67,6 @@ const StyledMainContent = styled.div`
   padding-right: 30px;
   padding-left: 27px;
   padding-top: 20px;
-  padding-bottom: 67px;
 
   ${BREAK_POINTS.mobile} {
     flex-direction: column;
@@ -137,7 +139,40 @@ const StyledPasswordButton = styled(Button)`
   }
 `;
 
+const ErrorMessages = styled.div`
+  font-family: "Open Sans";
+  min-height: 67px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding-left: 27px;
+  color: red;
+
+  p {
+    margin: 0;
+  }
+`;
+
 export const ChangeMyPassword = (props: Props) => {
+  const [currentPassword, setCurrentPassword] = useState<String>("");
+  const [newPassword, setNewPassword] = useState<string>("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const [isMatchingPasswords, setIsMatchingPasswords] = useState<boolean>(true);
+  const userName = "tjones";
+
+  const checkPasswordValidity = () => {
+    const { isValid, errors } = passwordValidation(newPassword, userName);
+    if (newPassword !== confirmNewPassword) {
+      return setIsMatchingPasswords(!isMatchingPasswords);
+    }
+
+    setIsMatchingPasswords(true);
+    console.log(isValid, errors);
+    console.log(currentPassword);
+    return;
+  };
+
   return (
     <StyledChangeMyPasswordContainer>
       <StyledHeader>
@@ -150,17 +185,31 @@ export const ChangeMyPassword = (props: Props) => {
       </StyledHeader>
       <StyledMainContent>
         <PasswordContainer>
-          <StyledPasswordInput type="password" placeholder="Current Password" />
-          <StyledPasswordInput type="password" placeholder="New Password" />
+          <StyledPasswordInput
+            type="password"
+            placeholder="Current Password"
+            onChange={(e) => setCurrentPassword(e.target.value)}
+          />
+          <StyledPasswordInput
+            type="password"
+            placeholder="New Password"
+            onChange={(e) => [
+              setNewPassword(e.target.value),
+              setIsPasswordValid(
+                !passwordValidation(newPassword, userName).isValid
+              ),
+            ]}
+          />
           <StyledPasswordInput
             type="password"
             placeholder="Confirm New Password"
+            onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
           <StyledPasswordButton
             label="CHANGE PASSWORD"
             buttonType="primary"
-            disabled={false}
-            onClick={() => console.log("Change Password Clicked")}
+            disabled={isPasswordValid}
+            onClick={checkPasswordValidity}
           />
         </PasswordContainer>
         <PasswordRequirementsContainer>
@@ -178,6 +227,9 @@ export const ChangeMyPassword = (props: Props) => {
           <p className="text">The word 'password' is not permitted</p>
         </PasswordRequirementsContainer>
       </StyledMainContent>
+      <ErrorMessages>
+        {isMatchingPasswords || <p>Passwords do not match. Try again.</p>}
+      </ErrorMessages>
     </StyledChangeMyPasswordContainer>
   );
 };
