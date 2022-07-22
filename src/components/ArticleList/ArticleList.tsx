@@ -10,10 +10,21 @@ import {
   convertDate,
   getArticles,
   sortArticlesByDateTime,
-  SortBy,
 } from "utils/articleFunctions";
 import { Colors } from "styles/colors";
 import { articleListLinkData } from "const/articleLinkData";
+
+export interface Article {
+  author: string;
+  content: string;
+  date: string;
+  id: string;
+  imageUrl: string;
+  readMoreUrl: string | null;
+  time: string;
+  title: string;
+  url: string;
+}
 
 const StyledArticleListContainer = styled.div`
   display: flex;
@@ -130,22 +141,18 @@ const StyledMobileMenuContainer = styled.div`
 `;
 
 export const ArticleList = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Article[]>([]);
 
-  const articles = async () => {
+  const fetchArticles = async () => {
     const articles = await getArticles(Category.TECHNOLOGY);
-    const sortedArticlesByDateTime = await sortArticlesByDateTime(
-      SortBy.DATE,
-      SortBy.TIME,
-      articles
-    );
+    const sortedArticlesByDateTime = sortArticlesByDateTime(articles);
 
     console.log(sortedArticlesByDateTime);
     setData(sortedArticlesByDateTime);
   };
 
   useEffect(() => {
-    articles();
+    fetchArticles();
   }, []);
   return (
     <>
@@ -159,7 +166,7 @@ export const ArticleList = () => {
           </StyledMobileMenuContainer>
           <LinksInfoContainer>
             <h4>All Topics</h4>
-            <UnderlineElement></UnderlineElement>
+            <UnderlineElement />
             <div>
               <ul>
                 {articleListLinkData.map(({ text, url, id }) => (

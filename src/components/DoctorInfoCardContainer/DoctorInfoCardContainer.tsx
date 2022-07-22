@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import styled from "styled-components";
 
-import DoctorData from "data/docData";
+import DoctorData, { Doctor } from "data/docData";
 
 import { DoctorInfoCard } from "components/DoctorInfoCard/DoctorInfoCard";
 import { BREAK_POINTS } from "const/breakpoints";
@@ -23,23 +23,18 @@ const StyledDoctorInfoCardContainer = styled.div`
 `;
 
 export const DoctorInfoCardContainer: React.FC = () => {
-  const [data, setData] = useState(DoctorData);
+  const data = DoctorData;
 
-  const sortDocsByLastName = () => {
-    const docs = data.sort((a, b) =>
+  const sortedDoctors = useMemo(() => {
+    return data.sort((a, b) =>
       a.last_name > b.last_name ? 1 : a.last_name < b.last_name ? -1 : 0
     );
-
-    return docs;
-  };
-
-  useEffect(() => {
-    setData(DoctorData);
   }, [data]);
+
   return (
     <StyledDoctorInfoCardContainer>
-      {sortDocsByLastName().map((data: any) => (
-        <DoctorInfoCard key={data.id} {...data} />
+      {sortedDoctors.map((data: Doctor) => (
+        <DoctorInfoCard key={data.id} doctor={data} />
       ))}
     </StyledDoctorInfoCardContainer>
   );

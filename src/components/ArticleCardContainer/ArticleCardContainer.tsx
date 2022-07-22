@@ -1,7 +1,7 @@
 import { BREAK_POINTS } from "const/breakpoints";
 import styled from "styled-components";
 
-interface ArticleCardContainrProps {
+interface ArticleCardContainerProps {
   children: React.ReactNode;
 }
 
@@ -25,6 +25,6 @@ const StyledArticleCardContainer = styled.section`
 
 export const ArticleCardContainer = ({
   children,
-}: ArticleCardContainrProps) => {
+}: ArticleCardContainerProps) => {
   return <StyledArticleCardContainer>{children}</StyledArticleCardContainer>;
 };
