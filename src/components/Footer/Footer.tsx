@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 import { BREAK_POINTS } from "const/breakpoints";
@@ -6,6 +5,7 @@ import { BREAK_POINTS } from "const/breakpoints";
 import VSP_LOGO from "assets/images/vsp_logo_secondary.svg";
 import { FooterLink, FOOTER_LINKS } from "const/FooterLinks";
 import Link from "components/Link";
+import useIsMobile from "hooks/useIsMobile";
 
 const StyledFooter = styled.footer`
   background-color: ${Colors.mountainBlue};
@@ -91,16 +91,7 @@ const LogoContainer = styled.div`
 `;
 
 export const Footer = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
-
-  const updateMedia = () => {
-    setIsMobile(window.innerWidth <= 576);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  });
+  const isMobile = useIsMobile();
 
   return (
     <StyledFooter>
