@@ -13,18 +13,7 @@ import {
 } from "utils/articleFunctions";
 import { Colors } from "styles/colors";
 import { articleListLinkData } from "const/articleLinkData";
-
-export interface Article {
-  author: string;
-  content: string;
-  date: string;
-  id: string;
-  imageUrl: string;
-  readMoreUrl: string | null;
-  time: string;
-  title: string;
-  url: string;
-}
+import { Article } from "models/articles";
 
 const StyledArticleListContainer = styled.div`
   display: flex;
