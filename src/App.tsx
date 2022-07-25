@@ -18,8 +18,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
+  height: 100vh;
 `;
 
 function App() {
