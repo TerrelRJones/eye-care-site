@@ -9,7 +9,7 @@ import { emailValidation } from "utils/emailValidation/emailValidator";
 import { BREAK_POINTS } from "const/breakpoints";
 
 const ModalContainer = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 2;
   display: flex;
   justify-content: center;

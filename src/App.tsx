@@ -7,11 +7,11 @@ import ContactUs from "components/ContactUs";
 import Footer from "components/Footer";
 import ArticleList from "components/ArticleList";
 import DoctorInfoCardContainer from "components/DoctorInfoCardContainer";
+import ChangeMyPassword from "components/ChangeMyPassword";
+import SpecialOfferModal from "components/SpecialOfferModal";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
-import ChangeMyPassword from "components/ChangeMyPassword";
-import SpecialOfferModal from "components/SpecialOfferModal";
 
 const Container = styled.div`
   position: relative;
