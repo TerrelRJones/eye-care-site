@@ -27,7 +27,7 @@ export const emailValidation = (email: string): EmailValidationResponse => {
   if (recipient.includes(".."))
     return {
       isValid: false,
-      error: "Email can not have consistant periods ex: ..",
+      error: "Email can not have consistent periods ex: ..",
     };
 
   if (recipient.length >= MAX_RECIPIENT_LENGTH)
