@@ -130,14 +130,31 @@ const ModalErrorMessage = styled.div`
   }
 `;
 
+const ModalThankYouMessage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  h1 {
+    color: ${Colors.mountainBlue};
+    font-size: 25px;
+    font-family: "Oswald";
+  }
+`;
+
 export const SpecialOfferModal = () => {
   const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isThankYouMessage, setIsThankYouMessage] = useState<boolean>(false);
 
   const handleModal = () => {
     if (emailValidation(email).isValid) {
-      setIsOpen(false);
+      setIsThankYouMessage(true);
+
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 2000);
     } else {
       setIsValidEmail(true);
     }
@@ -165,31 +182,40 @@ export const SpecialOfferModal = () => {
               </CloseBtn>
             </TopBanner>
             <ContentContainer>
-              <ModalTextContainer>
-                <p>
-                  Eyewear and eye care Special Offers are available at all VSP
-                  network doctor locations. Save on so much more—like wellness
-                  and nutrition, leisure and travel, family entertainment, and
-                  financial services to help bring you peace of mind.
-                </p>
-              </ModalTextContainer>
+              {!isThankYouMessage ? (
+                <>
+                  <ModalTextContainer>
+                    <p>
+                      Eyewear and eye care Special Offers are available at all
+                      VSP network doctor locations. Save on so much more—like
+                      wellness and nutrition, leisure and travel, family
+                      entertainment, and financial services to help bring you
+                      peace of mind.
+                    </p>
+                  </ModalTextContainer>
 
-              <InputContainer>
-                <StyledInput
-                  type="email"
-                  placeholder="Email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <SubscribeBtn
-                  label="SUBSCRIBE"
-                  buttonType="primary"
-                  onClick={() => handleModal()}
-                />
-              </InputContainer>
-              {isValidEmail && (
-                <ModalErrorMessage>
-                  <p>{emailValidation(email).error}</p>
-                </ModalErrorMessage>
+                  <InputContainer>
+                    <StyledInput
+                      type="email"
+                      placeholder="Email"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <SubscribeBtn
+                      label="SUBSCRIBE"
+                      buttonType="primary"
+                      onClick={() => handleModal()}
+                    />
+                  </InputContainer>
+                  {isValidEmail && (
+                    <ModalErrorMessage>
+                      <p>{emailValidation(email).error}</p>
+                    </ModalErrorMessage>
+                  )}
+                </>
+              ) : (
+                <ModalThankYouMessage>
+                  <h1>Thank You!</h1>
+                </ModalThankYouMessage>
               )}
             </ContentContainer>
           </StyledSpecialOfferModalContainer>
