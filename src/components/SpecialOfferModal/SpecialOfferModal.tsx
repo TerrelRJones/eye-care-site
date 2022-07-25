@@ -16,7 +16,7 @@ const ModalContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const StyledSpecialOfferModalContainer = styled.div`
@@ -44,9 +44,10 @@ const Title = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
-  font-family: "Open Sans";
-  font-size: 14px;
+  font-family: "Oswald";
+  font-size: 18px;
   color: ${Colors.white};
+  text-transform: uppercase;
 `;
 
 const CloseBtn = styled.div`
@@ -71,7 +72,7 @@ const ModalTextContainer = styled.div`
 
   p {
     margin: 0;
-    color: ${Colors.articleBlack};
+    color: ${Colors.mountainBlue};
     font-family: "Open Sans";
     font-size: 14px;
     letter-spacing: 0;
@@ -159,7 +160,7 @@ export const SpecialOfferModal = () => {
                 <VscChromeClose
                   className="closeBtn"
                   color={Colors.white}
-                  size="15"
+                  size="17"
                 />
               </CloseBtn>
             </TopBanner>
