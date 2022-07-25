@@ -14,16 +14,13 @@ import {
   ErrorMessages,
 } from "./styles";
 
-export interface ChangeMyPasswordProps {
-  mobile: boolean;
-}
-
 export const ChangeMyPassword = () => {
   const [currentPassword, setCurrentPassword] = useState<String>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
   const [isPasswordValid, setIsPasswordValid] = useState(true);
-  const [isMatchingPasswords, setIsMatchingPasswords] = useState<boolean>(true);
+  const [isMatchingPasswords, setIsMatchingPasswords] =
+    useState<boolean>(false);
   const isMobile = useIsMobile();
   const userName = "tjones";
 
@@ -31,10 +28,10 @@ export const ChangeMyPassword = () => {
     const { isValid, errors } = passwordValidation(newPassword, userName);
 
     if (newPassword !== confirmNewPassword) {
-      return setIsMatchingPasswords(!isMatchingPasswords);
+      return setIsMatchingPasswords(true);
     }
 
-    setIsMatchingPasswords(true);
+    setIsMatchingPasswords(false);
     console.log(isValid, errors);
     console.log(currentPassword);
     return isValid;
@@ -43,7 +40,7 @@ export const ChangeMyPassword = () => {
   // checking passwords validity
   useEffect(() => {
     setIsPasswordValid(!passwordValidation(newPassword, userName).isValid);
-  }, [newPassword]);
+  }, [newPassword, confirmNewPassword]);
 
   return (
     <StyledChangeMyPasswordContainer>
@@ -75,7 +72,7 @@ export const ChangeMyPassword = () => {
             placeholder="Confirm New Password"
             onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
-          {isMobile || (
+          {!isMobile && (
             <StyledPasswordButton
               label="CHANGE PASSWORD"
               buttonType="primary"
@@ -108,7 +105,7 @@ export const ChangeMyPassword = () => {
         )}
       </StyledMainContent>
       <ErrorMessages>
-        {isMatchingPasswords || (
+        {isMatchingPasswords && (
           <p>Passwords do not match. Please try again.</p>
         )}
       </ErrorMessages>
