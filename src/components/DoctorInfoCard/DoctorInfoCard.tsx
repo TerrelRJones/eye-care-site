@@ -200,9 +200,7 @@ export const DoctorInfoCard = ({ doctor }: DoctorInfoCardProps) => {
           <>
             <h4>NPI Number:</h4>
             <Flex>
-              {doctor_networks.map((network, index) => (
-                <p key={index}>{network}</p>
-              ))}
+              <p>{doctor_networks.join(", ")}</p>
             </Flex>
           </>
         )}
