@@ -23,21 +23,19 @@ const Container = styled.div`
 
 function App() {
   return (
-    <>
-      <Container>
-        <SpecialOfferModal />
-        <ContactUs title="Contact Us" linksTitle="Quick Links" />
-        <ChangeMyPassword />
-        <CardContainer title="VSP Benefits are easy to use">
-          {benefitCards.map((cardDetails) => (
-            <Card key={cardDetails.title} {...cardDetails} />
-          ))}
-        </CardContainer>
-        <ArticleList />
-        <DoctorInfoCardContainer />
-        <Footer />
-      </Container>
-    </>
+    <Container>
+      <SpecialOfferModal />
+      <ContactUs title="Contact Us" linksTitle="Quick Links" />
+      <ChangeMyPassword />
+      <CardContainer title="VSP Benefits are easy to use">
+        {benefitCards.map((cardDetails) => (
+          <Card key={cardDetails.title} {...cardDetails} />
+        ))}
+      </CardContainer>
+      <ArticleList />
+      <DoctorInfoCardContainer />
+      <Footer />
+    </Container>
   );
 }
 
