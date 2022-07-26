@@ -121,12 +121,16 @@ const ModalErrorMessage = styled.div`
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1px;
-  padding-left: 27px;
   color: ${Colors.errorRed};
 
   p {
     margin: 0;
     text-align: left;
+  }
+
+  ${BREAK_POINTS.mobile} {
+    padding-left: 0;
+    font-size: 10px;
   }
 `;
 
