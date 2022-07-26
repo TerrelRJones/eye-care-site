@@ -7,5 +7,5 @@ export default {
 
 const Template = (args) => <SpecialOfferModal {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const SpecialOffer = Template.bind({});
+SpecialOffer.args = {};
