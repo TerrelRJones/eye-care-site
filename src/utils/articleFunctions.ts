@@ -60,10 +60,10 @@ export const sortArticlesBy = async (sortType: SortBy, arr: []) => {
 
 export const sortArticlesByDateTime = (articles: Article[]) => {
   const sorted = articles.sort((a, b) =>
-    convertDate(a[SortBy.DATE], a[SortBy.TIME]).toDateString() >
+    convertDate(a[SortBy.DATE], a[SortBy.TIME]).toDateString() <
     convertDate(b[SortBy.DATE], b[SortBy.TIME]).toDateString()
       ? 1
-      : convertDate(a[SortBy.DATE], a[SortBy.TIME]).toDateString() <
+      : convertDate(a[SortBy.DATE], a[SortBy.TIME]).toDateString() >
         convertDate(b[SortBy.DATE], b[SortBy.TIME]).toDateString()
       ? -1
       : 0
