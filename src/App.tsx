@@ -7,37 +7,35 @@ import ContactUs from "components/ContactUs";
 import Footer from "components/Footer";
 import ArticleList from "components/ArticleList";
 import DoctorInfoCardContainer from "components/DoctorInfoCardContainer";
+import ChangeMyPassword from "components/ChangeMyPassword";
+import SpecialOfferModal from "components/SpecialOfferModal";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
-import ChangeMyPassword from "components/ChangeMyPassword";
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  flex-wrap: wrap;
-  margin: 0 auto;
+  height: 100vh;
 `;
 
 function App() {
   return (
-    <>
-      <Container>
-        <ContactUs title="Contact Us" linksTitle="Quick Links" />
-        <ChangeMyPassword />
-        <CardContainer title="VSP Benefits are easy to use">
-          {benefitCards.map((cardDetails) => (
-            <Card key={cardDetails.title} {...cardDetails} />
-          ))}
-        </CardContainer>
-        <ArticleList />
-        <DoctorInfoCardContainer />
-        <Footer />
-      </Container>
-    </>
+    <Container>
+      <SpecialOfferModal />
+      <ContactUs title="Contact Us" linksTitle="Quick Links" />
+      <ChangeMyPassword />
+      <CardContainer title="VSP Benefits are easy to use">
+        {benefitCards.map((cardDetails) => (
+          <Card key={cardDetails.title} {...cardDetails} />
+        ))}
+      </CardContainer>
+      <ArticleList />
+      <DoctorInfoCardContainer />
+      <Footer />
+    </Container>
   );
 }
 
