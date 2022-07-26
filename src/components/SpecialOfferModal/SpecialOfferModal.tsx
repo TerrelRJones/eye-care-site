@@ -44,6 +44,7 @@ const Title = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  padding-left: 15px;
   font-family: "Oswald";
   font-size: 18px;
   color: ${Colors.white};
@@ -51,8 +52,11 @@ const Title = styled.div`
 `;
 
 const CloseBtn = styled.div`
-  position: absolute;
-  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 5px;
+
   .closeBtn {
     cursor: pointer;
   }
@@ -147,7 +151,7 @@ const ModalThankYouMessage = styled.div`
 `;
 
 export const SpecialOfferModal = () => {
-  const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
+  const [isInvalidEmail, setIsInvalidEmail] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isThankYouMessage, setIsThankYouMessage] = useState<boolean>(false);
@@ -160,7 +164,7 @@ export const SpecialOfferModal = () => {
         setIsOpen(false);
       }, 2000);
     } else {
-      setIsValidEmail(true);
+      setIsInvalidEmail(true);
     }
   };
 
@@ -210,7 +214,7 @@ export const SpecialOfferModal = () => {
                       onClick={() => handleModal()}
                     />
                   </InputContainer>
-                  {isValidEmail && (
+                  {isInvalidEmail && (
                     <ModalErrorMessage>
                       <p>{emailValidation(email).error}</p>
                     </ModalErrorMessage>
