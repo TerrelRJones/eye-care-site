@@ -1,15 +1,31 @@
-import CardContainer from '.';
+import { Card } from "components/Card/Card";
+import CardContainer from ".";
+import { benefitCards } from "const/CTACardConst";
+
+import styled from "styled-components";
+
+const StoryContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default {
-  title: 'Containers',
+  title: "Containers",
   component: CardContainer,
+};
 
-} 
+const Template = (args) => (
+  <StoryContainer>
+    <CardContainer {...args}>
+      {benefitCards.map((cardDetails) => (
+        <Card key={cardDetails.title} {...cardDetails} />
+      ))}
+    </CardContainer>
+  </StoryContainer>
+);
 
-const Template= (args) => <CardContainer {...args} />
-
-export const Primary = Template.bind({});
-Primary.args = {
-    title: "VSP Benefits are easy to use",
-    children: "tetsts"
-}
+export const BenifitCardContainer = Template.bind({});
+BenifitCardContainer.args = {
+  title: "VSP Benefits are easy to use",
+};
