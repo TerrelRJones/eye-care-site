@@ -1,4 +1,4 @@
-import { Article } from "components/ArticleList/ArticleList";
+import { Article } from "models/articles";
 
 export enum Category {
   TECHNOLOGY = "technology",

@@ -7,4 +7,5 @@ export const Colors = {
   whiteOpacity: "rgba(255,255,255,0.9)",
   articleBlack: "#4A4A4A",
   netWorkWhite: "#F5F6F8",
+  errorRed: "#FF0000",
 };

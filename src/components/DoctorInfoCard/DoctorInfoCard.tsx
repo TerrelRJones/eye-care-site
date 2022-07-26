@@ -7,7 +7,6 @@ import { Doctor } from "data/docData";
 
 interface DoctorInfoCardProps {
   doctor: Doctor;
-  key: string | number;
 }
 
 const StyledDoctorInfoCardContainer = styled.div<
@@ -162,7 +161,7 @@ export const Flex = styled.div`
   display: flex;
 `;
 
-export const DoctorInfoCard = ({ doctor, key }: DoctorInfoCardProps) => {
+export const DoctorInfoCard = ({ doctor }: DoctorInfoCardProps) => {
   const {
     first_name,
     last_name,
@@ -174,7 +173,7 @@ export const DoctorInfoCard = ({ doctor, key }: DoctorInfoCardProps) => {
     avatar,
   } = doctor;
   return (
-    <StyledDoctorInfoCardContainer key={key} doctor_networks={doctor_networks}>
+    <StyledDoctorInfoCardContainer doctor_networks={doctor_networks}>
       <Avatar>
         <img src={avatar ? avatar : avatarIcon} alt="VSP Avatar Icon" />
       </Avatar>
@@ -201,8 +200,8 @@ export const DoctorInfoCard = ({ doctor, key }: DoctorInfoCardProps) => {
           <>
             <h4>NPI Number:</h4>
             <Flex>
-              {doctor_networks.map((network) => (
-                <p>{network}</p>
+              {doctor_networks.map((network, index) => (
+                <p key={index}>{network}</p>
               ))}
             </Flex>
           </>

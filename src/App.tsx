@@ -10,6 +10,7 @@ import DoctorInfoCardContainer from "components/DoctorInfoCardContainer";
 
 // Cards
 import { benefitCards } from "const/CTACardConst";
+import ChangeMyPassword from "components/ChangeMyPassword";
 
 const Container = styled.div`
   display: flex;
@@ -26,6 +27,7 @@ function App() {
     <>
       <Container>
         <ContactUs title="Contact Us" linksTitle="Quick Links" />
+        <ChangeMyPassword />
         <CardContainer title="VSP Benefits are easy to use">
           {benefitCards.map((cardDetails) => (
             <Card key={cardDetails.title} {...cardDetails} />
