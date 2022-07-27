@@ -13,13 +13,13 @@ export const passwordValidation = (
 
   const errors: Array<string> = [];
 
-  if (password === "")
-    return { isValid: false, errors: ["Please enter a password."] };
+  // if (password === "")
+  //   return { isValid: false, errors: ["Please enter a password."] };
 
   if (password.length < 8)
     return {
       isValid: false,
-      errors: ["Username invalid; must be at least 8 characters."],
+      errors: ["Password invalid; must be at least 8 characters."],
     };
 
   if (password.toLowerCase().includes("password"))
@@ -37,10 +37,10 @@ export const passwordValidation = (
     }
   });
 
-  if (errors.length <= 1) return { isValid: true, errors: errors };
+  if (errors.length <= 1) return { isValid: true, errors: [] };
 
   return {
     isValid: false,
-    errors: [...errors, "Password must contain atleast 3 rules."],
+    errors: [...errors],
   };
 };

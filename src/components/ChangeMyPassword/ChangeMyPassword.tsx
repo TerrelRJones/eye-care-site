@@ -19,6 +19,7 @@ export const ChangeMyPassword = () => {
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
   const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true);
+  const [isPasswordAccepted, setIsPasswordAccepted] = useState<boolean>(false);
   const [isMatchingPasswords, setIsMatchingPasswords] =
     useState<boolean>(false);
   const isMobile = useIsMobile();
@@ -32,9 +33,10 @@ export const ChangeMyPassword = () => {
     }
 
     setIsMatchingPasswords(false);
+    setIsPasswordAccepted(true);
+
     console.log(isValid, errors);
     console.log(currentPassword);
-    return isValid;
   };
 
   // checking passwords validity
@@ -105,8 +107,15 @@ export const ChangeMyPassword = () => {
         )}
       </StyledMainContent>
       <ErrorMessages>
+        {isPasswordValid &&
+          passwordValidation(newPassword, userName).errors.map((err, index) => (
+            <p key={index}>{err}</p>
+          ))}
         {isMatchingPasswords && (
           <p>Passwords do not match. Please try again.</p>
+        )}
+        {isPasswordAccepted && (
+          <p className="acceptedPass">Password Change Accepted</p>
         )}
       </ErrorMessages>
     </StyledChangeMyPasswordContainer>

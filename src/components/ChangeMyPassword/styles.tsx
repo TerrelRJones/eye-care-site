@@ -148,6 +148,9 @@ export const ErrorMessages = styled.div`
   p {
     margin: 0;
   }
+  .acceptedPass {
+    color: green;
+  }
 
   ${BREAK_POINTS.mobile} {
     padding-top: 10px;
