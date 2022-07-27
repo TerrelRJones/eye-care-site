@@ -120,7 +120,9 @@ export const ArticleCard = ({
       <StyledInfoContainer>
         <CategoryTag>{articleTag}</CategoryTag>
 
-        <Headline href={url}>{headline}</Headline>
+        <Headline href={url} target="_blank">
+          {headline}
+        </Headline>
 
         <StyledArticleParagraph>{article}</StyledArticleParagraph>
       </StyledInfoContainer>
