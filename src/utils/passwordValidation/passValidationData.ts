@@ -19,9 +19,4 @@ export const passwordValidationChecks = [
     regEx: /[!@#$%^&*]/,
     message: "Password must contain a special character.",
   },
-  {
-    check: "Password is atleast 8 characters",
-    regEx: /[a-zA-Z0-9!@#$%^&*]{8,}/,
-    message: "Password must contain a special character.",
-  },
 ];

@@ -134,6 +134,7 @@ export const StyledPasswordButton = styled(Button)`
 
 export const ErrorMessages = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: "Open Sans";
