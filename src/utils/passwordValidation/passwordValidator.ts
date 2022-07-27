@@ -37,7 +37,7 @@ export const passwordValidation = (
     }
   });
 
-  if (errors.length <= 2) return { isValid: true, errors: errors };
+  if (errors.length <= 1) return { isValid: true, errors: errors };
 
   return {
     isValid: false,
