@@ -69,13 +69,13 @@ const Headline = styled.a`
   -webkit-line-clamp: 2; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 26px;
+  font-size: 24px;
   color: ${Colors.icyBlue};
   text-decoration: none;
   margin: 0;
   padding: 0;
   letter-spacing: 0;
-  line-height: 39px;
+  line-height: 32px;
   font-weight: 400;
   width: 100%;
   transition: 0.2s all ease-in-out;
