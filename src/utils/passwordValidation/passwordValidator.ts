@@ -16,10 +16,10 @@ export const passwordValidation = (
   if (password === "")
     return { isValid: false, errors: ["Please enter a password."] };
 
-  if (username.length === 1)
+  if (password.length < 8)
     return {
       isValid: false,
-      errors: ["Username invalid; must be at least 2 characters."],
+      errors: ["Username invalid; must be at least 8 characters."],
     };
 
   if (password.toLowerCase().includes("password"))

@@ -18,7 +18,7 @@ export const ChangeMyPassword = () => {
   const [currentPassword, setCurrentPassword] = useState<String>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
-  const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true);
   const [isMatchingPasswords, setIsMatchingPasswords] =
     useState<boolean>(false);
   const isMobile = useIsMobile();
