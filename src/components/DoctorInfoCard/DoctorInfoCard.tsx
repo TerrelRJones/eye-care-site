@@ -57,7 +57,7 @@ const Avatar = styled.div`
   }
 `;
 
-const DoctorName = styled.h2<Pick<Doctor, "gender">>`
+const DoctorName = styled.h2`
   margin: 0;
   padding-top: 17px;
   font-family: "Oswald";
@@ -66,14 +66,8 @@ const DoctorName = styled.h2<Pick<Doctor, "gender">>`
   letter-spacing: 0;
   line-height: 24.2px;
   text-align: center;
-  color: ${({ gender }) =>
-    gender === "Female" ? Colors.mountainBlue : Colors.icyBlue};
+  color: ${Colors.mountainBlue};
   transition: 0.2s all ease-in-out;
-
-  &:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
 `;
 
 const Occupation = styled.h3`
@@ -94,10 +88,11 @@ const DocInfo = styled.div`
   justify-content: center;
   align-items: center;
   font-family: "Open Sans";
+  font-size: 14px;
   color: ${Colors.mountainBlue};
 
   h4 {
-    font-weight: 600;
+    font-weight: 400;
     margin: 0;
     margin-right: 5px;
   }
@@ -109,7 +104,11 @@ const DocInfo = styled.div`
 
   ${BREAK_POINTS.mobile} {
     h4 {
-      font-weight: 300;
+      font-weight: 400;
+    }
+
+    p {
+      font-weight: 400;
     }
 
     .genderTag {
@@ -177,9 +176,7 @@ export const DoctorInfoCard = ({ doctor }: DoctorInfoCardProps) => {
       <Avatar>
         <img src={avatar ? avatar : avatarIcon} alt="VSP Avatar Icon" />
       </Avatar>
-      <DoctorName
-        gender={gender}
-      >{`Dr. ${first_name} ${last_name}`}</DoctorName>
+      <DoctorName>{`Dr. ${first_name} ${last_name}`}</DoctorName>
       <Occupation>{job_title}</Occupation>
       <div className="docInfoContainer">
         <DocInfo>
@@ -198,7 +195,7 @@ export const DoctorInfoCard = ({ doctor }: DoctorInfoCardProps) => {
       <Networks doctor_networks={doctor_networks}>
         {doctor_networks && (
           <>
-            <h4>NPI Number:</h4>
+            <h4>Doctor Networks:</h4>
             <Flex>
               <p>{doctor_networks.join(", ")}</p>
             </Flex>
