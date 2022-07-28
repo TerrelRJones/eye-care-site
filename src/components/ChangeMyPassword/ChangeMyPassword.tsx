@@ -1,5 +1,5 @@
 import useIsMobile from "hooks/useIsMobile";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 import { passwordValidation } from "utils/passwordValidation/passwordValidator";
 
@@ -18,17 +18,23 @@ export const ChangeMyPassword = () => {
   const [currentPassword, setCurrentPassword] = useState<String>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
-  const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true);
+  const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
   const [isPasswordAccepted, setIsPasswordAccepted] = useState<boolean>(false);
   const [isMatchingPasswords, setIsMatchingPasswords] =
     useState<boolean>(false);
   const isMobile = useIsMobile();
   const userName = "tjones";
 
+  const passwordValidationResult = useMemo(
+    () => passwordValidation(newPassword, userName),
+    [newPassword, userName]
+  );
+
   const checkPasswordValidity = () => {
-    const { isValid, errors } = passwordValidation(newPassword, userName);
+    const { isValid, errors } = passwordValidationResult;
 
     if (newPassword !== confirmNewPassword) {
+      setIsPasswordAccepted(false);
       return setIsMatchingPasswords(true);
     }
 
@@ -41,8 +47,8 @@ export const ChangeMyPassword = () => {
 
   // checking passwords validity
   useEffect(() => {
-    setIsPasswordValid(!passwordValidation(newPassword, userName).isValid);
-  }, [newPassword, confirmNewPassword]);
+    setIsPasswordValid(passwordValidation(newPassword, userName).isValid);
+  }, [newPassword]);
 
   return (
     <StyledChangeMyPasswordContainer>
@@ -78,7 +84,7 @@ export const ChangeMyPassword = () => {
             <StyledPasswordButton
               label="CHANGE PASSWORD"
               buttonType="primary"
-              disabled={isPasswordValid}
+              disabled={!isPasswordValid}
               onClick={checkPasswordValidity}
             />
           )}
@@ -101,14 +107,14 @@ export const ChangeMyPassword = () => {
           <StyledPasswordButton
             label="CHANGE PASSWORD"
             buttonType="primary"
-            disabled={isPasswordValid}
+            disabled={!isPasswordValid}
             onClick={checkPasswordValidity}
           />
         )}
       </StyledMainContent>
       <ErrorMessages>
-        {isPasswordValid &&
-          passwordValidation(newPassword, userName).errors.map((err, index) => (
+        {!isPasswordValid &&
+          passwordValidationResult.errors.map((err, index) => (
             <p key={index}>{err}</p>
           ))}
         {isMatchingPasswords && (
