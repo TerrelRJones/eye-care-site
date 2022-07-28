@@ -9,30 +9,31 @@ export const passwordValidation = (
   password: string,
   username: string
 ): ErrorRespose => {
+  const cleanedPass = password.trim();
   const subUsername = username.substring(1);
 
   const errors: Array<string> = [];
 
-  // if (password === "")
-  //   return { isValid: false, errors: ["Please enter a password."] };
+  if (cleanedPass === "")
+    return { isValid: false, errors: ["Please enter a password."] };
 
-  if (password.length < 8)
+  if (cleanedPass.length < 8)
     return {
       isValid: false,
       errors: ["Password invalid; must be at least 8 characters."],
     };
 
-  if (password.toLowerCase().includes("password"))
+  if (cleanedPass.toLowerCase().includes("password"))
     return { isValid: false, errors: ["Password can not be password."] };
 
-  if (password.toLowerCase().includes(subUsername.toLowerCase()))
+  if (cleanedPass.toLowerCase().includes(subUsername.toLowerCase()))
     return {
       isValid: false,
       errors: ["Password can not contain username or name."],
     };
 
   passwordValidationChecks.forEach(({ regEx, message }) => {
-    if (!password.match(regEx)) {
+    if (!cleanedPass.match(regEx)) {
       errors.push(message);
     }
   });
