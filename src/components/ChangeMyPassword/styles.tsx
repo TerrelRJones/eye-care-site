@@ -147,6 +147,7 @@ export const ErrorMessages = styled.div`
 
   p {
     margin: 0;
+    padding-bottom: 5px;
   }
   .acceptedPass {
     color: green;
