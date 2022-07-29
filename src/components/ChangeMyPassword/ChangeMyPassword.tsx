@@ -47,8 +47,8 @@ export const ChangeMyPassword = () => {
 
   // checking passwords validity
   useEffect(() => {
-    setIsPasswordValid(passwordValidation(newPassword, userName).isValid);
-  }, [newPassword]);
+    setIsPasswordValid(passwordValidationResult.isValid);
+  }, [passwordValidationResult.isValid]);
 
   return (
     <StyledChangeMyPasswordContainer>
