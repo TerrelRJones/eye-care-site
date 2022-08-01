@@ -13,11 +13,11 @@ describe("TEST for password function", () => {
     expect(pass.errors[0]).toBe("Password can not contain username or name.");
   });
 
-  it("Should return 'Username invalid; must be at least 2 characters.' If user pass in 1 character.", () => {
-    const pass = passwordValidation("HeyJones3488!", "t");
+  it("Should return 'Password invalid; must be at least 8 characters.' If user pass in 1 character.", () => {
+    const pass = passwordValidation("Q2a", "tjones");
 
     expect(pass.errors[0]).toBe(
-      "Username invalid; must be at least 2 characters."
+      "Password invalid; must be at least 8 characters."
     );
   });
 
