@@ -6,3 +6,4 @@ Website is mobile responsive.
 - React
 - TypeScript
 - Storybook
+- Styled Components
