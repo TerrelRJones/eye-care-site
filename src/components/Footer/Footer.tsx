@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Colors } from "styles/colors";
 import { BREAK_POINTS } from "const/breakpoints";
 
-import EYECARE_LOGO from "assets/images/eyecare_logo.svg";
+import VSP_LOGO from "assets/images/vsp_logo_secondary.svg";
 import { FooterLink, FOOTER_LINKS } from "const/FooterLinks";
 import Link from "components/Link";
 import useIsMobile from "hooks/useIsMobile";
@@ -72,7 +72,6 @@ const LogoContainer = styled.div`
     margin-right: 10px;
     min-width: 90px;
     margin-bottom: 24px;
-    width: 300px;
   }
 
   p {
@@ -112,7 +111,7 @@ export const Footer = () => {
           ))}
         </FooterCardContainer>
         <LogoContainer>
-          <img src={EYECARE_LOGO} alt="VSP Logo" />
+          <img src={VSP_LOGO} alt="VSP Logo" />
           <p>&copy; 2018 Vision Service Plan.</p>
           <p>All rights reserved.</p>
         </LogoContainer>
