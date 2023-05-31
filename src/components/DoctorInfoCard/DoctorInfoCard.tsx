@@ -160,7 +160,7 @@ export const Flex = styled.div`
   display: flex;
 `;
 
-export const DoctorInfoCard = ({ doctor }: DoctorInfoCardProps) => {
+export const DoctorInfoCard: React.FC<DoctorInfoCardProps> = ({ doctor }) => {
   const {
     first_name,
     last_name,

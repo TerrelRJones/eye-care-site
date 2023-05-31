@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import { Colors } from "styles/colors";
 
@@ -35,14 +36,14 @@ const LinkStyled = styled.a<Pick<LinkProps, "color" | "hoverColor">>`
   }
 `;
 
-export const Link = ({
+export const Link: React.FC<LinkProps> = ({
   url,
   alt,
   text,
   image,
   color,
   hoverColor,
-}: LinkProps) => {
+}) => {
   return (
     <LinkStyled
       href={url}

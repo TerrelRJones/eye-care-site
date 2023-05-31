@@ -103,13 +103,13 @@ const StyledArticleParagraph = styled.p`
   -webkit-box-orient: vertical;
 `;
 
-export const ArticleCard = ({
+export const ArticleCard: React.FC<ArticleCardProps> = ({
   headline,
   article,
   articleTag,
   imageUrl,
   url,
-}: ArticleCardProps) => {
+}) => {
   return (
     <StyledArticleContainer>
       <StyledImageContainer>
